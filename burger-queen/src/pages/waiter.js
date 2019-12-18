@@ -1,15 +1,16 @@
-import React from 'react';
-import './App.css';
+import React,{useEffect, useState} from 'react';
+
+import db from '../firebase';
 
 
 function Menu() {
-  const [data, setData ]= useState([]);
+  const [data, setDatas ]= useState([]);
   useEffect (()=> { db.collection('menu').get()
     .then((snapshot) => {
       const newDatas = snapshot.docs.map((doc) => ({
         ...doc.data()
       }))
-      setData(newDatas)
+      setDatas(newDatas)
     })
   
 },[])

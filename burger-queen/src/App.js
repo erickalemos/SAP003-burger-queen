@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import './App.css';
+import Coffeebreak from './components/coffebreak';
+import Lunch from './components/lunch'
 
-import db from './firebase';
-import Button from './components/button'
+// import db from './firebase';
+// import Button from './components/button';
 
 
 function App() {
@@ -10,8 +11,9 @@ function App() {
   return (
   
     <div className="App">
-     <h1>Tentativa firebase</h1>
-     <Button text= "algo" />
+     <h1>Burger Queen</h1>
+     <Coffeebreak /> <br/><br/>
+     <Lunch />
     </div>
   );
 }

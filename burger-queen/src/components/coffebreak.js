@@ -1,19 +1,15 @@
 import React, {Component} from 'react';
-import Menu from '../pages/waiter'
-import Button from './button'
+import Menu from '../pages/waiter';
+//import Button from './button';
 
-const coffeebreak = () => {
-    const coffeeitems = Menu()
+const Coffeebreak = () => {
+    const coffeeitems = Menu();
     return (
         <>
-            coffeeitems.map(
-                (item)=> item.breakfast === true?
-                <button>
-                    {Item.name}
-                </button>)
+            {coffeeitems.map((item)=> item.breakfast === true ? <button>{item.Nome}</button>:false )} 
         </>
-    )
+            )
 
 }
 
-export default coffeebreak;
+export default Coffeebreak;
