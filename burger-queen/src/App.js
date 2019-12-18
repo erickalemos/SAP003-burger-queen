@@ -1,23 +1,17 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 
 import db from './firebase';
+import Button from './components/button'
 
-
-db.collection('menu').get()
-  .then((snapshot) => {
-    snapshot.forEach((doc) => {
-      console.log(doc.id, '=>', doc.data());
-    });
-  })
-  .catch((err) => {
-    console.log('Error getting documents', err);
-  });
 
 function App() {
+ 
   return (
+  
     <div className="App">
      <h1>Tentativa firebase</h1>
+     <Button text= "algo" />
     </div>
   );
 }

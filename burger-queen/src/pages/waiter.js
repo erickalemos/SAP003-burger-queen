@@ -1,14 +1,19 @@
 import React from 'react';
 import './App.css';
 
-// db.collection('menu').get()
-//   .then((snapshot) => {
-//     snapshot.forEach((doc) => {
-//       console.log(doc.data());
-//     });
-//   })
-//   .catch((err) => {
-//     console.log('Error getting documents', err);
-//   });
 
-`
+function Menu() {
+  const [data, setData ]= useState([]);
+  useEffect (()=> { db.collection('menu').get()
+    .then((snapshot) => {
+      const newDatas = snapshot.docs.map((doc) => ({
+        ...doc.data()
+      }))
+      setData(newDatas)
+    })
+  
+},[])
+return data
+}
+
+export default Menu;
