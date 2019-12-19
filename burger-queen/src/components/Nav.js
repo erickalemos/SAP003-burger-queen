@@ -1,23 +1,20 @@
-import React from 'react'
+import React, {Component} from 'react';
 import {
     BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
+     Link
   } from "react-router-dom";
-import Resturant from '../pages/Restaurant'
-
+  import '../App.css';
 
 function Nav(){
     return(
-        <div>
-        <nav>
-          <ul>
+        <div id="csstabs" class="csstabs" >
+        <nav class= "main-nav">
+          <ul class= "main-menu">
             <li>
-              <Link to="/Resturant">Home</Link>
+              <Link to="/Restaurant" id="tab1">Restaurant</Link>
             </li>
             <li>
-              <Link to="/Kitchen">About</Link>
+              <Link to="/Kitchen" id="tab2">Kitchen</Link>
             </li>
            
           </ul>

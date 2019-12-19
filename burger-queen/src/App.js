@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Coffeebreak from './components/coffebreak';
-import Lunch from './components/lunch'
+import Lunch from './components/lunch';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -8,13 +8,12 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Restaurant2 from './pages/Restaurant'
-import Nav from './components/Nav'
+import Restaurant from './pages/Restaurant';
+import Kitchen from './pages/Kitchen';
+import Nav from './components/Nav';
 
 // import db from './firebase';
 // import Button from './components/button';
-
-
 function App() {
   return (
     <Router>
@@ -40,28 +39,16 @@ function App() {
             <div>Pedidos em andamento</div>
             <Kitchen />
           </Route>
-          
-          
           <Route exact path="/Restaurant">
           {/* <div>Faça seu pedido</div> */}
-          <Restaurant2 />
-            <Restaurant />
+          <Restaurant />
+           
           </Route>
         </Switch>
       </div>
     </Router>
   );
 }
-
-function Restaurant() {
-  return <h2>Pedidos em andamento</h2>;
-}
-
-function Kitchen() {
-  return <h2>Faça seu pedido</h2>;
-}
-
-
 
 
 // function App() {
