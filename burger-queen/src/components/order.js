@@ -4,7 +4,7 @@ import React, {
 } from 'react';
 
 function Order(props) {
-    const [count, setCount] = useState(0);
+    const [order, setOrder] = useState([]);
     useEffect(() => {
        document.title = `Você clicou ${count} vezes`;
       });
