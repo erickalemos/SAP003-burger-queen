@@ -10,11 +10,11 @@ function Nav(){
         <div id="csstabs" class="csstabs" >
         <nav class= "main-nav">
           <ul class= "main-menu">
-            <li>
-              <Link to="/Restaurant" id="tab1">Restaurant</Link>
+            <li id="tab1">
+              <Link to="/Restaurant" id="tab1"><h3>Restaurant</h3></Link>
             </li>
-            <li>
-              <Link to="/Kitchen" id="tab2">Kitchen</Link>
+            <li id="tab2">
+              <Link to="/Kitchen" id="tab2"><h3>Kitchen</h3></Link>
             </li>
            
           </ul>

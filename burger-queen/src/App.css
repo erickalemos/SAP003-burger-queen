@@ -1,3 +1,7 @@
+body{
+  background: whitesmoke
+}
+
 .bt {
   border:1px solid #25692A;
   border-radius:4px;
@@ -74,3 +78,91 @@ h1{
     transform: rotate(360deg);
   }
 } */
+
+
+#csstabs {
+  height: 80%; 
+  margin:0 auto;
+  position:relative;
+  width: 100%;
+  }
+  #csstabs h3 { /* títulos das abas */
+  color: #000;
+  cursor: pointer;
+  display: block;
+  font-size: 15px;
+  font-weight: bold;
+  height: 25px;
+  margin: 0;
+  padding: 5px 5px 5px 5px;
+  text-align: left;
+  /* border-top:1px solid #000;
+  border-left:1px solid #000;
+  border-right:1px solid #000; */
+  border-bottom:1px solid #000;
+  }
+  .tabcontent { /* conteúdo das abas */
+  display: block;
+  height: auto;
+  width:100%;
+  padding:15px 0 5px 0px;
+  /* border:1px solid #000; */
+  }
+  #csstabs:hover h3, #tabs:focus h3, #tabs:active h3 {
+  z-index: 0;
+  background:none;
+  }
+  #csstabs:hover .tabcontent, #tabs:focus .tabcontent, #tabs:active .tabcontent {
+  opacity: 0;
+  z-index: 0;
+  }
+  
+  #tab1 .tabcontent {
+  background-color: #ddd;
+  position:absolute;
+  left:0;
+  top:35px;
+  height: 200px; /* altura total do conteúdo da aba 1 */
+  z-index: 2;
+  }
+  #tab1 h3 {
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 3;
+  background-color: #ddd; 
+  }
+  
+  #tab1:hover h3, #tab1:focus h3, #tab1:active h3 {
+  background-color: #ddd;
+  color: #565A63;
+  z-index: 4;
+  }
+  #tab1:hover .tabcontent, #tab1:focus .tabcontent, #tab1:active .tabcontent {
+  opacity: 1;
+  z-index: 3;
+  }
+  
+  #tab2 .tabcontent {
+  background-color: #E6EAF3;
+  height: 200px; /* altura total do conteúdo da aba 2 */
+  opacity: 0;
+  top:35px;
+  z-index: 1;
+  position:absolute;
+  }
+  #tab2 h3 {
+  left: 120px;
+  position: absolute;
+  top: 0;
+  }
+  
+  #tab2:hover h3, #tab2:focus h3, #tab2:active h3 {
+  background-color: #E6EAF3;
+  color: #565A63;
+  z-index: 4;
+  }
+  #tab2:hover .tabcontent, #tab2:focus .tabcontent, #tab2:active .tabcontent {
+  opacity: 1;
+  z-index: 3;
+  }

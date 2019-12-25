@@ -1,13 +1,8 @@
-import React, {
-    useEffect,
-    useState
-} from 'react';
+import React, { useState} from 'react';
 
 function Order(props) {
-    const [order, setOrder] = useState([]);
-    useEffect(() => {
-       document.title = `Você clicou ${count} vezes`;
-      });
+    // const [order, setOrder] = useState([]);
+  
     return ( 
         
         <>
@@ -15,10 +10,10 @@ function Order(props) {
         <input type ="text" placeholder ="Nome do Cliente"></input> 
         <input type ="text" placeholder ="Número de Mesa"></input>
         <h4>Dados do pedido</h4>
-        <p>Você clicou {count} vezes</p>
-        <button onClick={() => setCount(count + 1)}>
-        Clique aqui
-      </button>
+                
+            {/* {order.map((item)=> item.setOrder <p>{item.Name}</p><p>{item.Price}</p>)}  */}
+       
+       
         </form>
         </>
 
@@ -32,6 +27,12 @@ function Order(props) {
     //     </form>
     //     `;
     //     return order;
+
+// function orderCount(item){
+//   console.log('apertouuuuu \o/')
+
+// }
 }
+
 
 export default Order;

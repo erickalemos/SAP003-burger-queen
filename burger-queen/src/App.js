@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import Coffeebreak from './components/coffebreak';
-import Lunch from './components/lunch';
+// import Coffeebreak from './components/coffeebreak';
+// import Lunch from './components/lunch';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -39,7 +39,7 @@ function App() {
             <div>Pedidos em andamento</div>
             <Kitchen />
           </Route>
-          <Route exact path="/Restaurant">
+          <Route path="/Restaurant">
           {/* <div>Faça seu pedido</div> */}
           <Restaurant />
            
