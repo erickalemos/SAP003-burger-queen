@@ -1,15 +1,29 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import Menu from './menu';
-//import Button from './button';
+import Button from './button';
 import '../App.css';
-import orderCount from './order';
+// import addOrder from './order';
+
+
+
 
 const Coffeebreak = () => {
+    const [order, setOrder] = useState([]);
+
+    const addOrder = (item)=>{ 
+    setOrder([...order, item])
+    console.log('valor', item.Price)
+}
+
     const coffeeitems = Menu();
     return (
         <>
-            {coffeeitems.map((item)=> item.breakfast === true ? <button class= "bt bt-coffee"onClick ={orderCount}>{item.Name}</button>:false )} 
-            {/* {coffeeitems.map((item)=> item.breakfast === true ? <label>{item.Price}</label>:false )}  */}
+            {coffeeitems.map((item)=> item.breakfast === true ?
+             <Button 
+                className= "bt bt-coffee"
+                Name={item.Name} Price={item.Price}
+                onClick ={addOrder}
+              />:false )} 
         </>
             )
 

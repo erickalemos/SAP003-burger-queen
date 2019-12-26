@@ -1,38 +1,46 @@
 import React, { useState} from 'react';
+// import Count from './count';
 
 function Order(props) {
-    // const [order, setOrder] = useState([]);
-  
-    return ( 
+    const [order, setOrder] = useState([]);
+
+    // const addOrder = (item)=>{
+    //     setOrder([...order, item])
+    //     console.log('item', item.Price)
+    // }
+     
+     return ( 
         
         <>
         <form class="clientInformation">
         <input type ="text" placeholder ="Nome do Cliente"></input> 
         <input type ="text" placeholder ="Número de Mesa"></input>
         <h4>Dados do pedido</h4>
-                
-            {/* {order.map((item)=> item.setOrder <p>{item.Name}</p><p>{item.Price}</p>)}  */}
+        {/* <Count /> */}
+        {
+            order.map((item)=>  
+            <p>{item.Name && item.Price}
+            </p>
+            )
+        } 
        
        
         </form>
         </>
 
+
+  
+     )
+     function orderCount(){
+        console.log('apertouuuuu \o/')
+
         // let orderSelect = [];
         // const reducer = (accumulator, currentValue) => accumulator + currentValue;
         // console.log(orderSelect.reduce(reducer))
-    )
-    //     const order = `
-    //     <form class="form">
-    //       <order data-id="${props.dataId}" class="${props.class}" type="${props.type}" " placeholder="${props.placeholder}"/>    
-    //     </form>
-    //     `;
-    //     return order;
+  
+     }
 
-// function orderCount(item){
-//   console.log('apertouuuuu \o/')
-
-// }
-}
+};
 
 
 export default Order;
