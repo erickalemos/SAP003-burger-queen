@@ -1,11 +1,8 @@
-import React, {Component, useState} from 'react';
+import React, {useState} from 'react';
 import Menu from './menu';
 import Button from './button';
 import '../App.css';
 // import addOrder from './order';
-
-
-
 
 const Coffeebreak = () => {
     const [order, setOrder] = useState([]);
@@ -19,11 +16,11 @@ const Coffeebreak = () => {
     return (
         <>
             {coffeeitems.map((item)=> item.breakfast === true ?
-             <Button 
+            <Button 
                 className= "bt bt-coffee"
                 Name={item.Name} Price={item.Price}
                 onClick ={addOrder}
-              />:false )} 
+            />:false )} 
         </>
             )
 
