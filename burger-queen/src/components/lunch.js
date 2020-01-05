@@ -18,7 +18,8 @@ const Lunch = () => {
         {/* {lunchitems.map((item)=> item.breakfast !== true ? <button class="bt bt-lunch" onClick ={addOrder}>{item.Name}</button>:false )}  */}
 
             {lunchitems.map((item)=> item.breakfast !== true ?
-            <Button className="bt bt-lunch" Name={item.Name} Price={item.Price}
+            <Button className="bt bt-lunch" Name={item.Name} //Price={item.Price} //Additional={item.Additional}
+            Option={item.Option}
             onClick ={addOrder} />:false )} 
         </>
             )

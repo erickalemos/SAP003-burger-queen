@@ -14,6 +14,8 @@ function Button (props) {
           >
         <p>{props.Name}</p>
         <p>{props.Price}</p>
+        <p>{props.Additional}</p>
+        <p>{props.Option}</p>
         
          </button>
         </section>
