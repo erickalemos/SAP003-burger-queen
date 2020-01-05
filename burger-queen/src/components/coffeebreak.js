@@ -9,7 +9,7 @@ const Coffeebreak = () => {
 
     const addOrder = (item)=>{ 
     setOrder([...order, item])
-    console.log('valor', item)
+    console.log('valor', item.Price);
 }
 
     const coffeeitems = Menu();
