@@ -8,7 +8,7 @@ const Lunch = () => {
 
     const addOrder = (item)=>{ 
         setOrder([...order, item])
-        console.log('valor', item.Price)
+        console.log('valor', item.Name, item.Price)
     }
     const lunchitems = Menu();
     
@@ -18,7 +18,7 @@ const Lunch = () => {
         {/* {lunchitems.map((item)=> item.breakfast !== true ? <button class="bt bt-lunch" onClick ={addOrder}>{item.Name}</button>:false )}  */}
 
             {lunchitems.map((item)=> item.breakfast !== true ?
-            <Button className="bt bt-lunch" Name={item.Name} //Price={item.Price} //Additional={item.Additional}
+            <Button className="bt bt-lunch" Name={item.Name} Price={item.Price} //Additional={item.Additional}
             Option={item.Option}
             onClick ={addOrder} />:false )} 
         </>

@@ -34,9 +34,9 @@ function Order(props) {
      function orderCount(){
         console.log('apertouuuuu \o/')
 
-        // let orderSelect = [];
-        // const reducer = (accumulator, currentValue) => accumulator + currentValue;
-        // console.log(orderSelect.reduce(reducer))
+        let orderSelect = [];
+        const reducer = (accumulator, currentValue) => accumulator + currentValue;
+        console.log(orderSelect.reduce(reducer))
   
      }
 
