@@ -8,14 +8,15 @@ function Button (props) {
         return( 
         <>
         <section onClick ={props.handleClick}>
-          <button 
+          <button class="bt"
           onClick={() => props.onClick(props)}
           className={props.className}
           >
-        <p>{props.Name}</p>
+        <p>{props.Name}{props.title}</p>
         <p>{props.Price}</p>
         <p>{props.Additional}</p>
         <p>{props.Option}</p>
+       
         
          </button>
         </section>

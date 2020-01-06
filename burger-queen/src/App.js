@@ -18,19 +18,7 @@ function App() {
   return (
     <Router>
       <Nav />
-      {/* <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/Resturant">Home</Link>
-            </li>
-            <li>
-              <Link to="/Kitchen">About</Link>
-            </li>
-           
-          </ul>
-        </nav> */}
-
+     
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
             <div>
@@ -50,27 +38,5 @@ function App() {
   );
 }
 
-
-// function App() {
- 
-//   // return (
-  
-//   //   <div className="App">
-//   //    <h1>Burger Queen</h1>
-//   //    <h3>Café da Manhã</h3>
-//   //    <Coffeebreak /> <br/><br/>
-//   //    <h3>Resto do Dia</h3>
-//   //    <Lunch />
-//   //    <div>
-//   //    <h4>Pedido</h4>
-//   //      {/* <Order /> */}
-//   //    </div>
-//   //   </div>
-//   // );
-// return(
-//   <div>Aiaiai</div>
-// )
-
-// }
 
 export default App;
