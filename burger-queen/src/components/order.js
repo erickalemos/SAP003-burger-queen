@@ -18,9 +18,10 @@ function Order(props) {
 const name = document.getElementById("dataOrder").value;
      db.collection('orders').add({
       Name: name,
-      Order:order,   
-      uid: uid,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),    
+      NumberTable: number,
+      Order:order,  
+      Total:total 
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),    
     }) */}
         <h4>Dados do pedido</h4>
 

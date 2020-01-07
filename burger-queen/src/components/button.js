@@ -17,6 +17,7 @@ function Button (props) {
         <p>{props.Additional}</p>
         <p>{props.Option}</p>
         <p>{props.title}</p>
+        <p>{props.type}</p>
        
         
          </button>
