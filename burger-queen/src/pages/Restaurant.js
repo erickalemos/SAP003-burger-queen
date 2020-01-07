@@ -2,13 +2,13 @@ import React from 'react';
 // import Coffeebreak from '../components/coffeebreak';
 // import Lunch from '../components/lunch';
 import Order from '../components/order';
-import Menu from '../components/menu';
+// import Menu from '../components/menu';
 import Itemsmenu from '../components/itemsmenu'
 import '../App.css';
 
 
 function Restaurant() {
-    const coffeeitems = Menu();
+    // const coffeeitems = Menu();
     return (
         <div class="tabcontent">
         

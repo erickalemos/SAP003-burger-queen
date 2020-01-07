@@ -1,8 +1,8 @@
 import React, { useState} from 'react';
-import coffee from'./coffeebreak';
-import lunch from'./lunch';
+// import coffee from'./coffeebreak';
+// import lunch from'./lunch';
 import Button from '../components/button';
-import db from'../firebase';
+// import db from'../firebase';
 
 function Order(props) {
    //  const [order, setOrder] = useState([]);
@@ -13,9 +13,10 @@ function Order(props) {
         <h3> Seu Pedido </h3> 
         <form class="clientInformation">
         <input type ="text" placeholder ="Nome do Cliente e número da mesa" id= "dataOrder"></input> 
-        <Button name= 'Enviar Pedido'></Button>
+        <Button Name= 'Enviar Pedido' />
 {/* 
-const name = document.getElementById("dataOrder").value;
+
+const pedidos = document.getElementById("dataOrder").value;
      db.collection('orders').add({
       Name: name,
       NumberTable: number,
