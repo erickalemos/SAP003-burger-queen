@@ -12,17 +12,15 @@ function Order(props) {
         <div class="data-order">
         <h3> Seu Pedido </h3> 
         <form class="clientInformation">
-        <input type ="text" placeholder ="Nome do Cliente e número da mesa"></input> 
+        <input type ="text" placeholder ="Nome do Cliente e número da mesa" id= "dataOrder"></input> 
         <Button name= 'Enviar Pedido'></Button>
 {/* 
+const name = document.getElementById("dataOrder").value;
      db.collection('orders').add({
-      NavigationPreloadManager  
-      post: post,
-      likes: 0,    
+      Name: name,
+      Order:order,   
       uid: uid,
-      privacy: optionPost,
-      idname: firebase.auth().currentUser.displayName,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),    
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),    
     }) */}
         <h4>Dados do pedido</h4>
 

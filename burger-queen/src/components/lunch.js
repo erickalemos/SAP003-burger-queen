@@ -31,7 +31,7 @@ const Lunch = () => {
                     {item.Name}
                     {item.Price}
                 </p>)
-            } <h2>total: {total}</h2>
+            } <h2>Total: {total}</h2>
         </div>
         </>
             )
