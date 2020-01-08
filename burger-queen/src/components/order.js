@@ -1,19 +1,25 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect} from 'react';
 // import coffee from'./coffeebreak';
 // import lunch from'./lunch';
 import Button from '../components/button';
-// import db from'../firebase';
+import db from'../firebase';
 
 function Order(props) {
-   //  const [order, setOrder] = useState([]);
-     
+  const [order, setOrder] = useState([]);
+  function sendOrder(){
+    const orderFinal = document.getElementById("dataOrder").value;
+     useEffect(()=>{
+
+     },[order])
+    }   
+
      return ( 
         
         <div class="data-order">
         <h3> Seu Pedido </h3> 
         <form class="clientInformation">
         <input type ="text" placeholder ="Nome do Cliente e número da mesa" id= "dataOrder"></input> 
-        <Button Name= 'Enviar Pedido' />
+        <Button Name= 'Enviar Pedido' onClick = {() => sendOrder(item) />
 {/* 
 
 const pedidos = document.getElementById("dataOrder").value;
