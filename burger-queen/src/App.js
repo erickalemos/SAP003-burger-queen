@@ -21,7 +21,7 @@ function App() {
             <div>
         <Switch>
           <Route path="/Kitchen">
-            <div>Pedidos em andamento</div>
+            <div></div>
             <Kitchen />
           </Route>
           <Route path="/Restaurant">
