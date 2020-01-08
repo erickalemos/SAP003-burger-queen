@@ -1,9 +1,20 @@
-// function Menuitems(props) {
-//     const Menuitems = `
-//     <form class="form">
-//       <Menuitems data-id="${props.dataId}" class="${props.class}" type="${props.type}" " placeholder="${props.placeholder}"/>    
-//     </form>
-//     `;
-//     return Menuitems;
-//   }
-//   export default Menuitems;
+import React from 'react';
+
+function Form(props) {
+    return (
+        <>
+            {/* const form =  */}
+                <form class="form">
+                <h3>Dados do Pedido</h3>
+                <input class="input"
+                classname={props.className}
+                placeholder={props.placeholder}
+                text={props.text}>     
+                </input>
+                </form>
+        </>
+    )
+    
+  }
+
+export default Form;

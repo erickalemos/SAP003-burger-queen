@@ -1,45 +1,49 @@
-import React, { useState, useEffect} from 'react';
-// import coffee from'./coffeebreak';
-// import lunch from'./lunch';
-import Button from '../components/button';
-import db from'../firebase';
+// import React, { useState, useEffect} from 'react';
+// // import coffee from'./coffeebreak';
+// // import lunch from'./lunch';
+// import Button from '../components/button';
+// import db from'../firebase';
 
-function Order(props) {
-  const [order, setOrder] = useState([]);
-  function sendOrder(){
-    const orderFinal = document.getElementById("dataOrder").value;
-     useEffect(()=>{
+// function Order(props) {
+//   const [order, setOrder] = useState([]);
+//   function sendOrder(){
+//     // const orderFinal = document.getElementById("dataOrder").value;
+    
+//       db.collection('orders').add({
+//         Name: name,
+//         Order:order,  
+//         Total:total 
 
-     },[order])
-    }   
+//     })
+//   }   
 
-     return ( 
+//      return ( 
         
-        <div class="data-order">
-        <h3> Seu Pedido </h3> 
-        <form class="clientInformation">
-        <input type ="text" placeholder ="Nome do Cliente e número da mesa" id= "dataOrder"></input> 
-        <Button Name= 'Enviar Pedido' onClick = {() => sendOrder(item) />
-{/* 
+//         <div class="data-order">
+//         {/* <h3> Seu Pedido </h3> 
+//         <form class="clientInformation">
+//         <input type ="text" placeholder ="Nome do Cliente e número da mesa" id= "dataOrder"></input>  */}
+//         <Button Name= 'Enviar Pedido' onClick = {() => sendOrder() }/>
+// {/* 
 
-const pedidos = document.getElementById("dataOrder").value;
-     db.collection('orders').add({
-      Name: name,
-      NumberTable: number,
-      Order:order,  
-      Total:total 
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),    
-    }) */}
-        <h4>Dados do pedido</h4>
+// const pedidos = document.getElementById("dataOrder").value;
+//      db.collection('orders').add({
+//       Name: name,
+//       NumberTable: number,
+//       Order:order,  
+//       Total:total 
+//       timestamp: firebase.firestore.FieldValue.serverTimestamp(),    
+//      */}
+//         {/* // <h4>Dados do pedido</h4>
 
-        {/* <Count /> */}
+//         // {/* <Count /> */}
        
        
-        </form>
-        </div>
+//         {/* // </form> */} */}
+//          </div>
 
-       )
-      }
+//        )
+//       }
 
 
   
@@ -49,4 +53,4 @@ const pedidos = document.getElementById("dataOrder").value;
 
 
 
-export default Order;
+// export default Order;

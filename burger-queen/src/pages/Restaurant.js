@@ -10,14 +10,14 @@ import '../App.css';
 function Restaurant() {
     // const coffeeitems = Menu();
     return (
-        <div class="tabcontent">
+        <div className="tabcontent">
         
         {/* <h3>Café da Manhã</h3>
         <Coffeebreak /> <br/><br/>
         <h3>Resto do Dia</h3>
         <Lunch /> */}
         <Itemsmenu />
-         <Order /> 
+         {/* <Order />  */}
         </div>
     
     )

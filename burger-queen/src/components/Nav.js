@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {
     BrowserRouter as Router,
      Link
@@ -7,9 +7,9 @@ import {
 
 function Nav(){
     return(
-        <div id="csstabs" class="csstabs" >
-        <nav class= "main-nav">
-          <ul class= "main-menu">
+        <div id="csstabs" className="csstabs" >
+        <nav className= "main-nav">
+          <ul className= "main-menu">
             <li id="tab1">
               <Link to="/Restaurant" id="tab1"><h3>Restaurant</h3></Link>
             </li>

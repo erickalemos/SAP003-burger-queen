@@ -1,11 +1,15 @@
 import React, {useState} from 'react';
 import Menu from './menu';
 import Button from './button';
+import Form from './card';
+import db from '../firebase';
 import '../App.css';
 
 const Itemsmenu = () => {
     const [order, setOrder] = useState([]);
     const [menu, setMenu] = useState([]);
+    // const [send, setSend] = useState([])
+    
     
     //adc item
     const addOrder = (item)=>{ 
@@ -41,6 +45,20 @@ const Itemsmenu = () => {
     //reduce
     const total = order.reduce((accumulator, item) => accumulator + (item.Price * item.quantity),0);
 
+    //Enviar Pedido para o firebase
+
+    function sendOrder(props) {
+//   const [order, setOrder] = useState([]);
+ 
+      db.collection('orders').add({
+        // Name: name,
+        Order:order,  
+        Total:total
+
+    })
+  }   
+
+
     const Menuitems = Menu();
     
     const coffeebreak = Menuitems.filter(item=>item.breakfast === true);
@@ -50,25 +68,29 @@ const Itemsmenu = () => {
         <>
             <Button Name="Café da Manhã" className="bt-menu" onClick={()=> setMenu([...coffeebreak])} />
             <Button Name="Resto do Dia" className="bt-menu" onClick={()=> setMenu([...lunch])} />
-            <div class = "button-Itemsmenu">
+            <div className = "button-Itemsmenu">
                 {menu.map(item => 
                     <Button className="bt bt-Itemsmenu" Name={item.Name} Price={item.Price}
                     Option={item.Option}
+                    // Option={item.Option(i=>i.Option)}
+                    // Additional={item.Additional(i=>i.item)}
                     onClick ={addOrder} />)
                 } 
             </div>
+            <>
             <div>
+            <Form placeholder="Nome do Cliente" />
             {
+                
                 order.map(item => 
                     <p>
-                        {item.Name}
-                        {/* {item.Price} */}
-                        {item.quantity}
-                        <Button class = "btn-del"title = '🗑' onClick = {() => deletOrder(item)} /> 
+                        {item.Name}{item.quantity};
+                        <Button className = "btn-del"title = '🗑' onClick = {() => deletOrder(item)} /> 
                     </p>)
             } 
             <h3>Total: {total}</h3>
-            </div>
+            <Button Name ="Enviar" onClick ={() => sendOrder(item)} />
+            </div></>
         </>
             )                
 }
