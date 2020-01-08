@@ -6,63 +6,68 @@ import db from '../firebase';
 import '../App.css';
 
 const Itemsmenu = () => {
+    const Menuitems = Menu();
+    const coffeebreak = Menuitems.filter(item=>item.breakfast === true);
+    const lunch = Menuitems.filter(item=>item.breakfast !== true);
     const [order, setOrder] = useState([]);
     const [menu, setMenu] = useState([]);
+    const [form, setForm] = useState([]);
+    // const [total, setTotal] = useState([]);
     // const [send, setSend] = useState([])
-    
-    
+        
     //adc item
     const addOrder = (item)=>{ 
-        // setOrder([...order, item])
         const index = order.findIndex(itemNumber => itemNumber.Name === item.Name);
-        console.log(index)
         if (index === -1){
-            setOrder([...order, {...item, quantity: 1}])
-            console.log(item.quantity)
+            setOrder([...order, {...item, quantity: 1}]);
         }else{
             order[index].quantity += 1;
-            setOrder([...order])
-            console.log(item.quantity)
+            setOrder([...order]);
         }
     }
    
     //deletar pedidos
     const deletOrder = (item) => {
-        console.log(item)
-        console.log(item.quantity)
         const indexItem = order.findIndex(i=> i.Name === item.Name);
-        const filterDel = order.filter(i=> i.Name !== item.Name);
-                     
+        const filterDel = order.filter(i=> i.Name !== item.Name);          
         if(order[indexItem].quantity === 1){
             order.splice(indexItem, 1)
             setOrder([...filterDel])
         }else{
             order[indexItem].quantity-=1;
             setOrder([...order]);
-        }
-            
+        }     
     }
+
     //reduce
-    const total = order.reduce((accumulator, item) => accumulator + (item.Price * item.quantity),0);
+    const total = order.reduce((accumulator, item) => accumulator + (item.Price*item.quantity),0);
 
-    //Enviar Pedido para o firebase
+    //Enviar Pedido para o firebase  
+    function sendOrder() {
+        // console.log("enviou");
+         order.map(item =>item.Name);
+        const orderClient = { 
+            form, 
+            total, 
+            order, 
+            status:"pendente",
+            // timestamp: db.FieldValue.serverTimestamp(),
+        };
+        
+        console.log(order)
+        // console.log(order[0].Name);
+        // console.log(order.map(item =>item.Name))
+        db.collection('orders')
+        .add(orderClient)
+        .then(
+                setForm([]),
+                setOrder([]),
+                // setTotal([]),
+            )
+        
+    }   
 
-    function sendOrder(props) {
-//   const [order, setOrder] = useState([]);
- 
-      db.collection('orders').add({
-        // Name: name,
-        Order:order,  
-        Total:total
-
-    })
-  }   
-
-
-    const Menuitems = Menu();
     
-    const coffeebreak = Menuitems.filter(item=>item.breakfast === true);
-    const lunch = Menuitems.filter(item=>item.breakfast !== true);
 
     return (
         <>
@@ -79,17 +84,18 @@ const Itemsmenu = () => {
             </div>
             <>
             <div>
-            <Form placeholder="Nome do Cliente" />
+            <Form placeholder="Nome do Cliente e nº da mesa" value={form} onChange={(e)=> setForm(e.target.value)}/>
             {
-                
+            
                 order.map(item => 
-                    <p>
+                    <>
                         {item.Name}{item.quantity};
                         <Button className = "btn-del"title = '🗑' onClick = {() => deletOrder(item)} /> 
-                    </p>)
+                    </>)
             } 
             <h3>Total: {total}</h3>
-            <Button Name ="Enviar" onClick ={() => sendOrder(item)} />
+            <Button Name ="Enviar" onClick ={() => sendOrder()} />
+            
             </div></>
         </>
             )                

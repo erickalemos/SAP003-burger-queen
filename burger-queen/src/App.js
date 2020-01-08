@@ -1,12 +1,9 @@
-import React, {useState, useEffect} from 'react';
-// import Coffeebreak from './components/coffeebreak';
-// import Lunch from './components/lunch';
+import React from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import Restaurant from './pages/Restaurant';
 import Kitchen from './pages/Kitchen';

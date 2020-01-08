@@ -1,5 +1,5 @@
 
-import React, {Component} from "react";
+import React from "react";
 import '../App.css';
 
 
@@ -8,7 +8,8 @@ function Button (props) {
         return( 
         <>
         <section onClick ={props.handleClick}>
-          <button class="bt"
+          <button 
+          //class="bt"
           onClick={() => props.onClick(props)}
           className={props.className}
           >

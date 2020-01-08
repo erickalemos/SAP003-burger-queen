@@ -4,10 +4,11 @@ function Form(props) {
     return (
         <>
             {/* const form =  */}
-                <form class="form">
+                <form className="form" value={props.value} onChange={props.onChange}
+                >
                 <h3>Dados do Pedido</h3>
-                <input class="input"
-                classname={props.className}
+                <input 
+                className={props.className}
                 placeholder={props.placeholder}
                 text={props.text}>     
                 </input>
