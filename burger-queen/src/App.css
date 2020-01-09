@@ -25,28 +25,10 @@ h1 {
   align-items: center;
 }
 
-/* .bt-lunch {
-  border-color: #46a7f5;
-  background: linear-gradient(to bottom, #86c6f8 5%, #46a7f5 100%);
-  box-shadow: inset 0px 1px 0px 0px #d7ecfd;
-  color: #fff;
-  text-shadow: 0px 1px 0px #528009;
- 
-}
-
-.button-lunch {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-around;
-} */
-
 .bt-Itemsmenu {
-  border-color: #46a7f5;
+  border-color: #46a7f5; 
   background: linear-gradient(to bottom, #86c6f8 5%, #46a7f5 100%);
   box-shadow: inset 0px 1px 0px 0px #d7ecfd;
-  color: #fff;
-  text-shadow: 0px 1px 0px #528009;
  
 }
 
@@ -76,6 +58,16 @@ h1 {
   background-color: #fffbad00;
 } */
 
+.pedido{
+  font-size: 10;
+}
+.btn-del{
+color: black;
+  font-size: 16px;
+  background-color: #fffbad00;
+  margin-left: auto;
+}
+
 #csstabs {
   height: 80%;
   margin: 0 auto;
@@ -94,9 +86,6 @@ h1 {
   margin: 0;
   padding: 5px 5px 5px 5px;
   text-align: left;
-  /* border-top:1px solid #000;
-  border-left:1px solid #000;
-  border-right:1px solid #000; */
   border-bottom: 1px solid #000;
 }
 
@@ -106,8 +95,7 @@ h1 {
   height: auto;
   width: 100%;
   padding: 15px 0 5px 0px;
-  /* border:1px solid #000; */
-}
+ }
 
 #csstabs:hover h3,
 #tabs:focus h3,

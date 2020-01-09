@@ -4,6 +4,7 @@ import Button from './button';
 import Form from './card';
 import db from '../firebase';
 import '../App.css';
+// import firebase from '../firebase';
 
 const Itemsmenu = () => {
     const Menuitems = Menu();
@@ -16,7 +17,7 @@ const Itemsmenu = () => {
     // const [send, setSend] = useState([])
         
     //adc item
-    const addOrder = (item)=>{ 
+    const addOrder = (item) =>{ 
         const index = order.findIndex(itemNumber => itemNumber.Name === item.Name);
         if (index === -1){
             setOrder([...order, {...item, quantity: 1}]);
@@ -45,29 +46,24 @@ const Itemsmenu = () => {
     //Enviar Pedido para o firebase  
     function sendOrder() {
         // console.log("enviou");
-         order.map(item =>item.Name);
-        const orderClient = { 
+         //order.map(item =>item.Name);
+        const orderClient = {
             form, 
-            total, 
-            order, 
-            status:"pendente",
+            order,
+            // status:"pendente",
             // timestamp: db.FieldValue.serverTimestamp(),
         };
-        
         console.log(order)
         // console.log(order[0].Name);
         // console.log(order.map(item =>item.Name))
         db.collection('orders')
         .add(orderClient)
         .then(
-                setForm([]),
-                setOrder([]),
-                // setTotal([]),
-            )
+            setForm([]),
+            setOrder([])        
+        )
         
     }   
-
-    
 
     return (
         <>
@@ -89,12 +85,14 @@ const Itemsmenu = () => {
             
                 order.map(item => 
                     <>
-                        {item.Name}{item.quantity};
+                        <span className="pedido">{item.Name} - qtde: {item.quantity}
                         <Button className = "btn-del"title = '🗑' onClick = {() => deletOrder(item)} /> 
+                        </span>
+                        
                     </>)
             } 
-            <h3>Total: {total}</h3>
-            <Button Name ="Enviar" onClick ={() => sendOrder()} />
+            <h3>Total: {total},00</h3>
+            <Button Name ="Enviar" onClick ={sendOrder} />
             
             </div></>
         </>
