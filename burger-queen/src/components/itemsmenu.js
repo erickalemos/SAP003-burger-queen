@@ -92,7 +92,7 @@ const Itemsmenu = () => {
                     </>)
             } 
             <h3>Total: {total},00</h3>
-            <Button Name ="Enviar" onClick ={sendOrder} />
+            <Button Name ="Enviar" onClick ={() => sendOrder()} />
             
             </div></>
         </>
