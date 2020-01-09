@@ -14,23 +14,24 @@ import Nav from './components/Nav';
 function App() {
   return (
     <Router>
-      <Nav />
-     
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-            <div>
-        <Switch>
-          <Route path="/Kitchen">
-            <div></div>
-            <Kitchen />
-          </Route>
-          <Route path="/Restaurant">
-          {/* <div>Faça seu pedido</div> */}
-          <Restaurant />
-           
-          </Route>
-        </Switch>
+      <header>
+        <Nav />
+             {/* A <Switch> looks through its children <Route>s and
+              renders the first one that matches the current URL. */}
+              <div>
+          <Switch>
+            <Route path="/Kitchen">
+              <div></div>
+              <Kitchen />
+            </Route>
+            <Route path="/Restaurant">
+            {/* <div>Faça seu pedido</div> */}
+            <Restaurant />
+            
+            </Route>
+          </Switch>
       </div>
+      </header>
     </Router>
   );
 }

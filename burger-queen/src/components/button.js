@@ -13,11 +13,11 @@ function Button (props) {
           onClick={() => props.onClick(props)}
           className={props.className}
           >
-        {props.Name}  
-        {props.Price}
-        {props.Additional}
-        {props.Option}
-        {props.title}</p>
+        <p>{props.Name}</p>  
+        <p>{props.Price}</p>
+        <p>{props.Additional}</p>
+        <p>{props.Option}</p>
+        <p>{props.title}</p>
         <p>{props.type}</p>
        
         

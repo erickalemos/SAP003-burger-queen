@@ -12,7 +12,6 @@
         measurementId: "G-PV2M0L0L2B"
     };
 
-    const config = firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
+    firebase.initializeApp(firebaseConfig);
 
-    export default db;
+    export default firebase;

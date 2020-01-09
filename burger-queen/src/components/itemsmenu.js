@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import Menu from './menu';
 import Button from './button';
 import Form from './card';
-import db from '../firebase';
+// import firebase.firestore() from '../firebase';
 import '../App.css';
-// import firebase from '../firebase';
+import firebase from '../firebase';
 
 const Itemsmenu = () => {
     const Menuitems = Menu();
@@ -13,9 +13,8 @@ const Itemsmenu = () => {
     const [order, setOrder] = useState([]);
     const [menu, setMenu] = useState([]);
     const [form, setForm] = useState([]);
-    // const [total, setTotal] = useState([]);
-    // const [send, setSend] = useState([])
-        
+    const [modal,setModal] = useState([]);
+         
     //adc item
     const addOrder = (item) =>{ 
         const index = order.findIndex(itemNumber => itemNumber.Name === item.Name);
@@ -45,18 +44,16 @@ const Itemsmenu = () => {
 
     //Enviar Pedido para o firebase  
     function sendOrder() {
-        // console.log("enviou");
-         //order.map(item =>item.Name);
+    
         const orderClient = {
             form, 
             order,
-            // status:"pendente",
-            // timestamp: db.FieldValue.serverTimestamp(),
-        };
-        console.log(order)
-        // console.log(order[0].Name);
-        // console.log(order.map(item =>item.Name))
-        db.collection('orders')
+            status:"pendente",
+            timestamp:firebase.firestore.FieldValue.serverTimestamp(),
+
+        }
+        
+         firebase.firestore().collection('orders')
         .add(orderClient)
         .then(
             setForm([]),
@@ -67,7 +64,7 @@ const Itemsmenu = () => {
 
     return (
         <>
-        <div class="container-restaurant">
+        <main class="container-restaurant">
             <div class="box-items">
                 <div className="bt-menutype">
                     <Button Name="Café da Manhã" className="bt-menu" onClick={()=> setMenu([...coffeebreak])} />
@@ -75,11 +72,12 @@ const Itemsmenu = () => {
                 </div>
             <div className = "button-Itemsmenu">
                 {menu.map(item => 
-                    <Button className="bt bt-Itemsmenu" Name={item.Name} Price={item.Price}
-                    //Option={item.Option}
-                    // Option={item.Option(i=>i.Option)}
-                    // Additional={item.Additional(i=>i.item)}
-                    onClick ={addOrder} />)
+                    <Button 
+                        className="bt bt-Itemsmenu" 
+                        Name={item.Name} 
+                        Price={item.Price}
+                        onClick ={() => addOrder(item)} 
+                    />)
                 } 
             </div></div>
             <>
@@ -95,13 +93,29 @@ const Itemsmenu = () => {
                         
                     </>)
             } 
-            <h3>Total: {total},00</h3>
-            <Button Name ="Enviar" onClick ={() => sendOrder()} />
+            <h3>Total:R$ {total},00</h3>
+            <Button Name ="Enviar" onClick ={sendOrder} />
             
             </div></>
-            </div>
+            </main>
         </>
             )                
 }
 
 export default Itemsmenu;
+
+// ... CRIAR UM COPIA DO OBJETO/ARRAY
+// .MAP(menuitem)=>  {...menuitem}copiar o item.price e o item.name
+// trocar botoes do menu por section e passar algumas divs para section
+// IF CONDIÇÃO SE TIVER O MENU OPTIONS
+// const [modal, setModal]= useState({false});
+//
+// const verifyOptions= {menutitem}=>{
+//     if(menuitem.options){
+//      setModal({status:true, item:menuItem}) 
+//     }else{
+//    addOrder(Menuitem)
+//}
+// }
+// criar no return {modal===true} ou {modal? }
+//nomear header, main e sections

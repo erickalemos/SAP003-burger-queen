@@ -1,49 +1,79 @@
-// import React, { useState, useEffect} from 'react';
-// // import coffee from'./coffeebreak';
-// // import lunch from'./lunch';
-// import Button from '../components/button';
-// import db from'../firebase';
+import React, { useState, useEffect} from 'react';
+import firebase from'../firebase';
+import Button from './button';
 
-// function Order(props) {
-//   const [order, setOrder] = useState([]);
-//   function sendOrder(){
-//     // const orderFinal = document.getElementById("dataOrder").value;
-    
-//       db.collection('orders').add({
-//         Name: name,
-//         Order:order,  
-//         Total:total 
+function Order(props) {
 
-//     })
-//   }   
+  const [data, setData] = useState([]);
 
-//      return ( 
+  useEffect(()=>{
+    firebase.firestore().collection('orders')
+    .onSnapshot((snapshot)=> {
+        const pedidos = snapshot.docs.map((doc)=>({
+            id:doc.id,
+            ...doc.data()
+            
+        }))
+        setData(pedidos)
+    })
+  },[])
+
+  const statusReady = (item)=>{
+      firebase.firestore().collection('orders')
+    .doc(item.id)
+    .update({status:"Pronto"})
+
+  }
+
+  const statusDelivered = (item)=>{
+    firebase.firestore().collection('orders')
+  .doc(item.id)
+  .update({status:"Entregue"})
+
+}
+
+console.log("data",data)
+ const statusPending = data.filter(item => item.status==="pendente");
+ const statusR = data.filter(item => item.status==="Pronto");
+ const statusD = data.filter(item => item.status==="Entregue");
+
+     return ( 
         
-//         <div class="data-order">
-//         {/* <h3> Seu Pedido </h3> 
-//         <form class="clientInformation">
-//         <input type ="text" placeholder ="Nome do Cliente e número da mesa" id= "dataOrder"></input>  */}
-//         <Button Name= 'Enviar Pedido' onClick = {() => sendOrder() }/>
-// {/* 
+        <main class="data-order">
+            <h3>Pedidos Pendentes</h3>
+            {statusPending.map(item => 
+               <div class="card-item">
+                   {item.form}
+                   {item.status}
+                   {item.order.map(elem =>
+                   <>
+                   <p>{elem.Name}</p> 
+                   <p>{elem.quantity}</p> 
+                    </>
+                   )}
+                   <Button className="status" Name="Pronto" onClick={()=> statusReady(item)}/>
+                   
+                </div> 
+                            )}
+            <h3>Pedidos Pronto</h3> 
+            {statusR.map(item => 
+               <div class="card-item">
+                   {item.form}
+                   {item.status}
+                   {item.order.map(elem =>
+                   <>
+                   <p>{elem.Name}</p> 
+                   <p>{elem.quantity}</p> 
+                    </>
+                   )}
+                   <Button className="status" Name="Entregue" onClick={()=> statusDelivered(item)}/>
+                </div> 
+                            )}               
 
-// const pedidos = document.getElementById("dataOrder").value;
-//      db.collection('orders').add({
-//       Name: name,
-//       NumberTable: number,
-//       Order:order,  
-//       Total:total 
-//       timestamp: firebase.firestore.FieldValue.serverTimestamp(),    
-//      */}
-//         {/* // <h4>Dados do pedido</h4>
+         </main>
 
-//         // {/* <Count /> */}
-       
-       
-//         {/* // </form> */} */}
-//          </div>
-
-//        )
-//       }
+       )
+      }
 
 
   
@@ -53,4 +83,4 @@
 
 
 
-// export default Order;
+export default Order;
