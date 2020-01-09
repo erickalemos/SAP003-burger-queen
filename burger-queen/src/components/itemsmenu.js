@@ -67,27 +67,31 @@ const Itemsmenu = () => {
 
     return (
         <>
-            <Button Name="Café da Manhã" className="bt-menu" onClick={()=> setMenu([...coffeebreak])} />
-            <Button Name="Resto do Dia" className="bt-menu" onClick={()=> setMenu([...lunch])} />
+        <div class="container-restaurant">
+            <div class="box-items">
+                <div className="bt-menutype">
+                    <Button Name="Café da Manhã" className="bt-menu" onClick={()=> setMenu([...coffeebreak])} />
+                    <Button Name="Resto do Dia" className="bt-menu" onClick={()=> setMenu([...lunch])} />
+                </div>
             <div className = "button-Itemsmenu">
                 {menu.map(item => 
                     <Button className="bt bt-Itemsmenu" Name={item.Name} Price={item.Price}
-                    Option={item.Option}
+                    //Option={item.Option}
                     // Option={item.Option(i=>i.Option)}
                     // Additional={item.Additional(i=>i.item)}
                     onClick ={addOrder} />)
                 } 
-            </div>
+            </div></div>
             <>
-            <div>
+            <div class="box-order">
             <Form placeholder="Nome do Cliente e nº da mesa" value={form} onChange={(e)=> setForm(e.target.value)}/>
             {
             
                 order.map(item => 
                     <>
-                        <span className="pedido">{item.Name} - qtde: {item.quantity}
+                        <div className="order">{item.Name} - qtde: {item.quantity}
                         <Button className = "btn-del"title = '🗑' onClick = {() => deletOrder(item)} /> 
-                        </span>
+                        </div>
                         
                     </>)
             } 
@@ -95,6 +99,7 @@ const Itemsmenu = () => {
             <Button Name ="Enviar" onClick ={() => sendOrder()} />
             
             </div></>
+            </div>
         </>
             )                
 }
