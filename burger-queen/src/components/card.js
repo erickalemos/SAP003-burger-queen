@@ -6,11 +6,13 @@ function Form(props) {
             {/* const form =  */}
                 <form className="form" value={props.value} onChange={props.onChange}
                 >
-                <h3>Dados do Pedido</h3>
+                    
                 <input 
-                className={props.className}
-                placeholder={props.placeholder}
-                text={props.text}>     
+                    className={props.className}
+                    placeholder={props.placeholder}
+                    text={props.text}
+                > 
+                
                 </input>
                 </form>
         </>

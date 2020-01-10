@@ -11,22 +11,20 @@ function Order(props) {
     .onSnapshot((snapshot)=> {
         const pedidos = snapshot.docs.map((doc)=>({
             id:doc.id,
-            ...doc.data()
-            
+            ...doc.data()            
         }))
         setData(pedidos)
     })
   },[])
 
   const statusReady = (item)=>{
-      firebase.firestore().collection('orders')
+    firebase.firestore().collection('orders')
     .doc(item.id)
     .update({status:"Pronto"})
-
   }
 
   const statusDelivered = (item)=>{
-    firebase.firestore().collection('orders')
+   firebase.firestore().collection('orders')
   .doc(item.id)
   .update({status:"Entregue"})
 
@@ -35,16 +33,16 @@ function Order(props) {
 console.log("data",data)
  const statusPending = data.filter(item => item.status==="pendente");
  const statusR = data.filter(item => item.status==="Pronto");
- const statusD = data.filter(item => item.status==="Entregue");
+// const statusD = data.filter(item => item.status==="Entregue");
 
      return ( 
         
-        <main class="data-order">
-            <h3>Pedidos Pendentes</h3>
+        <main className="data-order">
+            <h3 className="title-pending">Pedidos Pendentes</h3>
             {statusPending.map(item => 
                <div class="card-item">
-                   {item.form}
-                   {item.status}
+                   <b>{item.status}</b><br/>
+                   {item.form}                
                    {item.order.map(elem =>
                    <>
                    <p>{elem.Name}</p> 
@@ -68,19 +66,10 @@ console.log("data",data)
                    )}
                    <Button className="status" Name="Entregue" onClick={()=> statusDelivered(item)}/>
                 </div> 
-                            )}               
+              )}               
 
          </main>
 
        )
       }
-
-
-  
-     
-  
-
-
-
-
 export default Order;

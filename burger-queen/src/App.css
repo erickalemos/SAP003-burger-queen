@@ -30,7 +30,9 @@ h1 {
 .bt-Itemsmenu {
   border-color: whitesmoke;
   background: linear-gradient(to bottom, rgb(155, 123, 123) 5%, rgba(255, 255, 255, 0.295) 100% );
- 
+ width: auto;
+ height: auto;
+ font-size: 20px;
 }
 
 .button-Itemsmenu {
@@ -38,7 +40,8 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  flex: 1;
+  flex: 3;
+  
   /* justify-content:space-around ; */
 }
 /* .button-Itemsmenu {
@@ -50,8 +53,8 @@ h1 {
   height: 100%;
 }  
  .box-items{
-  width: 300px;
-  height: 150px;
+  width: 50%;
+  height: 500px;
 	margin: 0 auto;
 	display: flex;
   border: 1px solid #ccc;
@@ -61,7 +64,7 @@ h1 {
  .box-order {
   align-items: center;
   flex-direction: column;
-  width: 300px;
+  width: 50%;
 	margin: 0 auto;
 	display: flex;
 	border: 1px solid #ccc;
@@ -78,36 +81,51 @@ h1 {
   display: flex;
   width: 100%;
   align-items: center;
+  background:transparent;
+  border: none;
+  justify-content: center;
 }
 .bt-menutype{
   display: flex;
   width: 100%;
+  justify-content: space-around;
   align-items: center;
 
 }
 
 .btn-del {
-  background-color: whitesmoke;
-  font-size: 12px;
+  background-color: transparent;
+  font-size: 50px;
   padding:0;
   margin-block-end: 0em;
   margin-block-start: 0em;
+  border:none;
    
   }
 
 .data-order {
   border: 1px solid #ccc;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
 
 }
 
 .card-item {
   border: 1px solid #ccc;
   background-color: rgb(233, 221, 221);
-  width: 50px;
-  height: 100px;
-
+  width: 20%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+   align-items: center;
+  
+ }
+.title-pending{
+  display: flex;
+  flex-direction: column;
 }
-
 
 #csstabs {
   height: 80%;

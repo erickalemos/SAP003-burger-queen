@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import Menu from './menu';
 import Button from './button';
 import Form from './card';
-// import firebase.firestore() from '../firebase';
 import '../App.css';
 import firebase from '../firebase';
 
@@ -13,7 +12,7 @@ const Itemsmenu = () => {
     const [order, setOrder] = useState([]);
     const [menu, setMenu] = useState([]);
     const [form, setForm] = useState([]);
-    const [modal,setModal] = useState([]);
+    //const [modal,setModal] = useState({status: false});
          
     //adc item
     const addOrder = (item) =>{ 
@@ -44,24 +43,28 @@ const Itemsmenu = () => {
 
     //Enviar Pedido para o firebase  
     function sendOrder() {
-    
         const orderClient = {
             form, 
             order,
-            status:"pendente",
-            timestamp:firebase.firestore.FieldValue.serverTimestamp(),
-
+            status:"Pendente",
+            timestamp:firebase.firestore.FieldValue.serverTimestamp()
         }
-        
-         firebase.firestore().collection('orders')
+        firebase.firestore().collection('orders')
         .add(orderClient)
         .then(
             setForm([]),
             setOrder([])        
-        )
-        
+        )  
     }   
 
+    // const verifyOptions = (Menuitems) =>{
+    //     if(Menuitems.Option){
+    //         setModal({status: true, item: Menuitems})
+    //     }else{
+    //         addOrder(Menuitems)
+    //     }
+    // }
+console.log(Menuitems.map(i=>i.Option))
     return (
         <>
         <main class="container-restaurant">
@@ -72,23 +75,37 @@ const Itemsmenu = () => {
                 </div>
             <div className = "button-Itemsmenu">
                 {menu.map(item => 
+                
                     <Button 
                         className="bt bt-Itemsmenu" 
                         Name={item.Name} 
                         Price={item.Price}
-                        onClick ={() => addOrder(item)} 
+                         onClick ={() => addOrder(item)} 
+                        //onClick={()=> verifyOptions(Menuitems)}
                     />)
                 } 
             </div></div>
+            {/* {modal === true?(
+                <div>
+                    <h3>Extras</h3>
+                    {modal.item.Option.map(elem=>(
+                    <div> 
+                        <input type="radio" name="Opções value=={elem}"/>
+                        <label>{elem}</label>
+                    </div>))}
+                    <h3>Opções</h3>
+                </div>
+            ):false} */}
             <>
             <div class="box-order">
+            <h3>Dados do Pedido</h3>
             <Form placeholder="Nome do Cliente e nº da mesa" value={form} onChange={(e)=> setForm(e.target.value)}/>
             {
             
                 order.map(item => 
                     <>
                         <div className="order">{item.Name} - qtde: {item.quantity}
-                        <Button className = "btn-del"title = '🗑' onClick = {() => deletOrder(item)} /> 
+                            <Button className = "btn-del"title = '🗑' onClick = {() => deletOrder(item)} /> 
                         </div>
                         
                     </>)
@@ -119,3 +136,5 @@ export default Itemsmenu;
 // }
 // criar no return {modal===true} ou {modal? }
 //nomear header, main e sections
+//colocar firebase em um pasta
+//fazer logo no canva

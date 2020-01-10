@@ -9,7 +9,6 @@ function Button (props) {
         <>
         <section onClick ={props.handleClick}>
           <button 
-          //class="bt"
           onClick={() => props.onClick(props)}
           className={props.className}
           >
