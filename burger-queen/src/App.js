@@ -6,8 +6,9 @@ import {
   Route,
 } from "react-router-dom";
 import Restaurant from './pages/Restaurant';
-import Kitchen from './pages/Kitchen';
+// import Kitchen from './pages/Kitchen';
 import Nav from './components/Nav';
+import Order from './pages/Kitchen'
 
 // import db from './firebase';
 // import Button from './components/button';
@@ -22,7 +23,8 @@ function App() {
           <Switch>
             <Route path="/Kitchen">
               <div></div>
-              <Kitchen />
+              {/* <Kitchen /> */}
+              <Order />
             </Route>
             <Route path="/Restaurant">
             {/* <div>Faça seu pedido</div> */}

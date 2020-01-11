@@ -4,9 +4,12 @@ import {
      Link
   } from "react-router-dom";
   import '../App.css';
+  import Logo from './logo'; 
 
 function Nav(){
     return(
+      <>
+      <Logo className="logo"/>
         <div id="csstabs" className="csstabs" >
         <nav className= "main-nav">
           <ul className= "main-menu">
@@ -20,6 +23,7 @@ function Nav(){
           </ul>
         </nav>
         </div>
+        </>
     )
 }
 

@@ -12,8 +12,7 @@ const Itemsmenu = () => {
     const [order, setOrder] = useState([]);
     const [menu, setMenu] = useState([]);
     const [form, setForm] = useState([]);
-    //const [modal,setModal] = useState({status: false});
-         
+            
     //adc item
     const addOrder = (item) =>{ 
         const index = order.findIndex(itemNumber => itemNumber.Name === item.Name);
@@ -57,18 +56,12 @@ const Itemsmenu = () => {
         )  
     }   
 
-    // const verifyOptions = (Menuitems) =>{
-    //     if(Menuitems.Option){
-    //         setModal({status: true, item: Menuitems})
-    //     }else{
-    //         addOrder(Menuitems)
-    //     }
-    // }
+    
 console.log(Menuitems.map(i=>i.Option))
     return (
         <>
-        <main class="container-restaurant">
-            <div class="box-items">
+        <main className="container-restaurant">
+            <div className="box-items">
                 <div className="bt-menutype">
                     <Button Name="Café da Manhã" className="bt-menu" onClick={()=> setMenu([...coffeebreak])} />
                     <Button Name="Resto do Dia" className="bt-menu" onClick={()=> setMenu([...lunch])} />
@@ -85,19 +78,9 @@ console.log(Menuitems.map(i=>i.Option))
                     />)
                 } 
             </div></div>
-            {/* {modal === true?(
-                <div>
-                    <h3>Extras</h3>
-                    {modal.item.Option.map(elem=>(
-                    <div> 
-                        <input type="radio" name="Opções value=={elem}"/>
-                        <label>{elem}</label>
-                    </div>))}
-                    <h3>Opções</h3>
-                </div>
-            ):false} */}
+           
             <>
-            <div class="box-order">
+            <div className="box-order">
             <h3>Dados do Pedido</h3>
             <Form placeholder="Nome do Cliente e nº da mesa" value={form} onChange={(e)=> setForm(e.target.value)}/>
             {
