@@ -23,7 +23,6 @@ const Itemsmenu = () => {
             setOrder([...order]);
         }
     }
-   
     //deletar pedidos
     const deletOrder = (item) => {
         const indexItem = order.findIndex(i=> i.Name === item.Name);
@@ -55,9 +54,7 @@ const Itemsmenu = () => {
             setOrder([])        
         )  
     }   
-
     
-console.log(Menuitems.map(i=>i.Option))
     return (
         <>
         <main className="container-restaurant">
@@ -66,19 +63,20 @@ console.log(Menuitems.map(i=>i.Option))
                     <Button Name="Café da Manhã" className="bt-menu" onClick={()=> setMenu([...coffeebreak])} />
                     <Button Name="Resto do Dia" className="bt-menu" onClick={()=> setMenu([...lunch])} />
                 </div>
-            <div className = "button-Itemsmenu">
+                <div className = "button-Itemsmenu">
                 {menu.map(item => 
                 
                     <Button 
                         className="bt bt-Itemsmenu" 
                         Name={item.Name} 
                         Price={item.Price}
-                         onClick ={() => addOrder(item)} 
+                        onClick ={() => addOrder(item)} 
                         //onClick={()=> verifyOptions(Menuitems)}
                     />)
                 } 
-            </div></div>
-           
+                </div>
+            </div>
+    
             <>
             <div className="box-order">
             <h3>Dados do Pedido</h3>

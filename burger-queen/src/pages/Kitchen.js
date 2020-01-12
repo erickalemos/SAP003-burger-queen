@@ -6,15 +6,31 @@ import Button from '../components/button';
 function Order() {
 
   const [data, setData] = useState([]);
+  const [processing, setProcessing]= useState([]);
+  // const [ready, setReady]= useState([]);
+  // const [history, setHistory] = useState([]);
+
+  const pending = data.filter(item=>item.status === "Pendente");
+  const ready = data.filter(item=>item.status === "Pronto");
+  const history = data.filter(item=>item.status ==="Entregue");
+
+  const statusP = data.filter(item=>item.status==="Pendente")
+  const statusR = data.filter(item => item.status==="Pronto");
+  const statusD = data.filter(item => item.status==="Entregue");
+
+  
+  console.log(pending);
+  console.log(ready)
+  console.log(history)
 
   useEffect(()=>{
     firebase.firestore().collection('orders')
     .onSnapshot((snapshot)=> {
-        const pedidos = snapshot.docs.map((doc)=>({
+        const order = snapshot.docs.map((doc)=>({
             id:doc.id,
             ...doc.data()            
         }))
-        setData(pedidos)
+        setData(order)
     })
   },[])
 
@@ -25,61 +41,100 @@ function Order() {
   }
 
   const statusDelivered = (item)=>{
-   firebase.firestore().collection('orders')
+  firebase.firestore().collection('orders')
   .doc(item.id)
   .update({status:"Entregue"})
 
 }
 
-console.log("data",data)
- const statusR = data.filter(item => item.status==="Pronto");
- const statusD = data.filter(item => item.status==="Entregue");
 
-     return ( 
-        
-        <main className="data-order">
-            <h3 className="title-pending">Pedidos Pendentes</h3>
-            {data.map(item => 
-               <div className="card-item">
-                   <b>{item.status}</b><br/>
-                   {item.form}                
-                   {item.order.map(elem =>
-                   <>
-                   <p>{elem.Name}</p> 
-                   <p>{elem.quantity}</p> 
+
+return ( 
+  <>
+    <main className="data-order">
+      <div className="box-cards">
+        <div className="bt-menuStatus">
+          <>
+            <Button Name="Pendente" className="bt-menu" onClick={()=> setProcessing ([...statusP])} />
+              {processing.map(item =>   
+                
+                
+                <div className="card-item">
+                <p>{item.form}</p>                
+                {item.order.map(elem => 
+                           
+                    <>
+                      <p>Item: {elem.Name}</p> 
+                      <p>Quantidade: {elem.quantity}</p> 
                     </>
-                   )}
-                   <Button className="status" Name="Pronto" onClick={()=> statusReady(item)}/>
-                   
-                </div> 
-                            )}
-            <h3>Pedidos Pronto</h3> 
-            {statusR.map(item => 
-               <div className="card-item">
-                   {item.form}
-                   {item.status}
-                   {item.order.map(elem =>
-                   <>
-                   <p>{elem.Name}</p> 
-                   <p>{elem.quantity}</p> 
-                    </>
-                   )}
-                   <Button className="status" Name="Entregue" onClick={()=> statusDelivered(item)}/>
-                </div> 
-              )}               
+                  
+                )} 
+                <Button className="status" Name="Pronto" onClick={()=> statusReady(item)}/>                   */}
+                </div>   
+                
+                
+                )}
+              <Button Name="Pronto" className="bt-menu" onClick={()=> setData([...ready])} />
+              
 
-         </main>
+              <Button Name="Entregue" className="bt-menu" onClick={()=> setData([...history])} />
+              </>
+              </div>
+          </div>
+    </main>      
+  </>
 
-       )
+
+)
       }
 export default Order;
 
+// {/*           
+        // <main className="data-order">
+        //     <h3 className="title-pending">Pedidos Pendentes</h3>
+        //     <div class="box-cards pending">
+        //     {statusP.map(item =>  */}
+        {/* //       <div className="card-item">
+        //         Nome e mesa do cliente:{item.form}                
+        //         {item.order.map(elem => */}
+        {/* //           <>
+        //             <p>Item: {elem.Name}</p> 
+        //             <p>Quantidade: {elem.quantity}</p> 
+        //           </>
+        //         )}
+        //         <Button className="status" Name="Pronto" onClick={()=> statusReady(item)}/>                  
+        //         </div>  */}
+                
+        {/* //                     )}</div>
+        //     <h3>Pedidos Pronto</h3> 
+        //     <div class="box-cards ready">
+        //     {statusR.map(item =>  */}
+        {/* //        <div className="card-item">
+        //            {item.form}
+        //            {item.status}
+        //            {item.order.map(elem => */}
+        {/* //            <>
+        //            <p>{elem.Name}</p> 
+        //            <p>{elem.quantity}</p> 
+        //             </>
+        //            )}
+        //            <Button className="status" Name="Entregue" onClick={()=> statusDelivered(item)}/>
+        //         </div> 
+                
+        //       )}    </div>            */}
+{/* 
+        //  </main> */}
 
-// function Kitchen() {
-//     return (
-//       <div className="tabcontent">
-//         <Order />
-//         {console.log("Order"+ Order)}
-//       </div>
-//     )
-//   }
+
+
+        // useEffect(()=>{
+//   firebase.firestore().collection('orders')
+//   .onSnapshot((snapshot)=>{
+//     const pedidoP = snapshot.docs.map((doc)=>({
+//       status:doc.status,
+//       ...doc.data()
+//     }))
+//     setPeding(pedidoP)
+//     console.log(pedidoP)
+//   })
+// })
