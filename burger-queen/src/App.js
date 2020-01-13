@@ -19,10 +19,11 @@ function App() {
         <Nav />
              {/* A <Switch> looks through its children <Route>s and
               renders the first one that matches the current URL. */}
+              </header>
               <div>
           <Switch>
             <Route path="/Kitchen">
-              <div></div>
+              
               {/* <Kitchen /> */}
               <Order />
             </Route>
@@ -33,7 +34,7 @@ function App() {
             </Route>
           </Switch>
       </div>
-      </header>
+      
     </Router>
   );
 }
