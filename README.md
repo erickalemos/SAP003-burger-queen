@@ -24,14 +24,14 @@ Na interface da cozinha é preciso selecionar o status dos pedidos para visualiz
 ## 3. Tecnologias
 
 
-*HTML5
-*JavasScript (ES6)
-*React Hooks
-*@fortawesome/react-fontawesome
-*growl-alert
+    • HTML5
+    • JavasScript (ES6)
+    • React Hooks
+    • Firebase
+    • Sweetalert2
 
  
 ## 4. Considerações gerais
 
-*Interface deve ser pensada específicamente para rodar em tablets.
-*O aplicativo é um Single Page App.
+•Interface pensada específicamente para rodar em tablets.
+•O aplicativo é um Single Page App.

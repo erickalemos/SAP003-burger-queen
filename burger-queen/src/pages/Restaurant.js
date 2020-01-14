@@ -4,7 +4,7 @@ import Button from '../components/button';
 import Input from '../components/input';
 import '../App.css';
 import firebase from '../firebase';
-
+import Swal from 'sweetalert2';
 
 const Restaurant = () => {
     const Menuitems = Menu();
@@ -48,17 +48,38 @@ const Restaurant = () => {
             order,
             status:'Pendente',
             timestamp:firebase.firestore.FieldValue.serverTimestamp()})
-        .then(()=> {
-            alert('Pedido Enviado')})
-        setName('')
-        setTable('')
+        .then( 
+            Swal.fire({
+                icon: 'success',
+                title: 'Pedido enviado com sucesso!',
+                showConfirmButton: false,
+                timer: 1500
+            }),
+        setName(''),
+        setTable(''),
         setOrder([]) 
-    } else if(order.length === 0){
-        alert(' Selecione um item!')
+         )} else if(order.length === 0){
+        Swal.fire({
+            icon: 'error',
+            title: 'Selecione ao menos um item!',
+            showConfirmButton: false,
+            timer: 1500
+        })
     } else if(Name.length === 0){
-        alert(' Coloque o nome do cliente')
+        Swal.fire({
+            icon: 'warning',
+            title: 'Digite o nome do cliente',
+            showConfirmButton: false,
+            timer: 1500
+        })
     } else if(table.length === 0){
-        alert(' Coloque o número da mesa')} 
+        Swal.fire({
+            icon: 'error',
+            title: 'Digite o n° da mesa',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    } 
     }   
     
     return (
