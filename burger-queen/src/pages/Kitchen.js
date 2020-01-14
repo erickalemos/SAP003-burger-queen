@@ -14,9 +14,9 @@ function Order() {
   // const done = data.filter(item=>item.status === "Pronto");
   // const received = data.filter(item=>item.status ==="Entregue");
 
-  const statusP = data.filter(item=>item.status==="Pendente")
-  const statusR = data.filter(item => item.status==="Pronto");
-  const statusD = data.filter(item => item.status==="Entregue");
+  const pending = data.filter(item=>item.status==="Pendente")
+  const done = data.filter(item => item.status==="Pronto");
+  const received = data.filter(item => item.status==="Entregue");
 
   useEffect(()=>{
     firebase.firestore().collection('orders')
@@ -66,7 +66,7 @@ function Order() {
         <div className="box-cards">
           <div className="bt-menuStatus">
             <>
-              <Button Name="Pendente" className="bt-kitchen" onClick={()=> setProcessing ([...statusP])} />
+              <Button Name="Pendente" className="bt-kitchen" onClick={()=> setProcessing ([...pending])} />
                 {processing.map(item =>     
                       //  {item.status === "Pendente" ? 
                   <div className="card-item">
@@ -84,7 +84,7 @@ function Order() {
                 )}
             </>
             <>
-              <Button Name="Pronto" className="bt-kitchen" onClick={()=>  setProcessing([...statusR])} />
+              <Button Name="Pronto" className="bt-kitchen" onClick={()=>  setProcessing([...done])} />
               {ready.map(item =>   
                 <div className="card-item">
                     <div className="divisor">
@@ -100,7 +100,7 @@ function Order() {
               )}
             </>
             <>
-              <Button Name="Entregue" className="bt-kitchen" onClick={()=> setProcessing([...statusD])} />
+              <Button Name="Entregue" className="bt-kitchen" onClick={()=> setProcessing([...received])} />
               {history.map(item =>   
                 <div className="card-item">
                     <div className="divisor">
