@@ -8,9 +8,9 @@ function Order() {
   const [data, setData] = useState([]);
   const [processing, setProcessing]= useState([]);
 
-  const pending = data.filter(item=>item.status==="Pendente")
-  const done = data.filter(item => item.status==="Pronto");
-  const received = data.filter(item => item.status==="Entregue");
+  const pending = data.filter(item=>item.status==='Pendente')
+  const done = data.filter(item => item.status==='Pronto');
+  const received = data.filter(item => item.status==='Entregue');
 
   useEffect(()=>{
     firebase.firestore().collection('orders')
@@ -44,28 +44,28 @@ function Order() {
 
   return ( 
     <>
-      <main className="data-order">
-        <div className="bt-menuStatus">
-          <Button Name="Pendente" className="bt-kitchen" onClick={()=> setProcessing ([...pending])} />
-          <Button Name="Pronto" className="bt-kitchen" onClick={()=>  setProcessing([...done])} />
-          <Button Name="Entregue" className="bt-kitchen" onClick={()=> setProcessing([...received])} />
+      <main className='data-order'>
+        <div className='bt-menuStatus'>
+          <Button Name='Pendente' className='bt-kitchen' onClick={()=> setProcessing ([...pending])} />
+          <Button Name='Pronto' className='bt-kitchen' onClick={()=>  setProcessing([...done])} />
+          <Button Name='Entregue' className='bt-kitchen' onClick={()=> setProcessing([...received])} />
         </div>
-        <div className="box-cards">
+        <div className='box-cards'>
           {processing.map(item =>     
-            <div className="card-item">
-              <div className="divisor">
-                <p><b>{item.name} Mesa:{item.table}</b></p> 
+            <div className='card-item'>
+              <div className='divisor'>
+                <p><b>{item.Name}<hr/> Mesa: {item.table}</b></p> 
               </div>               
-                {item.order.map(elem =>                            
-                      <>
-                        <p><b>{elem.quantity}</b> x {elem.Name} </p> 
-                      </>
-                  )} 
-                  {item.status === "Pendente" ?  <Button className="bt-status" Name="Pronto" onClick={()=> updateStatus(item, "Pronto", "Pendente")}/> : false}
-                  {item.status === "Pronto" ?  <Button className="bt-status" Name="Entregue" onClick={()=> updateStatus(item, "Entregue", "Pronto")}/> : false}
-                  </div>                                                 
-                )}         
-              </div>
+              {item.order.map(elem =>                            
+                <>
+                  <p><b>{elem.quantity}</b> x {elem.Name} </p> 
+                </>
+              )} 
+              {item.status === 'Pendente' ?  <Button className='bt-status' Name='Pronto' onClick={()=> updateStatus(item, 'Pronto', 'Pendente')}/> : false}
+              {item.status === 'Pronto' ?  <Button className='bt-status' Name='Entregue' onClick={()=> updateStatus(item, 'Entregue', 'Pronto')}/> : false}
+            </div>                                                 
+          )}         
+        </div>
       </main>      
     </>
   )
