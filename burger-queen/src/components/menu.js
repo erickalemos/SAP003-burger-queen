@@ -12,9 +12,8 @@ function Menu() {
       }))
       setDatas(newDatas)
     })
-  
-},[])
-return data
+  },[])
+  return data
 }
 
 export default Menu;

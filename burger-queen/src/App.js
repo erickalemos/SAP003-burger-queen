@@ -17,18 +17,17 @@ function App() {
     <Router>
       <header>
         <Nav />
-             {/* A <Switch> looks through its children <Route>s and
-              renders the first one that matches the current URL. */}
+             
               </header>
               <div>
           <Switch>
             <Route path="/Kitchen">
               
-              {/* <Kitchen /> */}
+            
               <Order />
             </Route>
-            <Route path="/Restaurant">
-            {/* <div>Faça seu pedido</div> */}
+            <Route path="/">
+            
             <Restaurant />
             
             </Route>

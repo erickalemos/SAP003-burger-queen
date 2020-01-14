@@ -12,11 +12,9 @@ const Restaurant = () => {
     const lunch = Menuitems.filter(item=>item.breakfast !== true);
     const [order, setOrder] = useState([]);
     const [menu, setMenu] = useState([]);
-    const [name, setName] = useState([]);
+    const [Name, setName] = useState([]);
     const [table, setTable] = useState([]);
     
-            
-    //adc item
     const addOrder = (item) =>{ 
         const index = order.findIndex(itemNumber => itemNumber.Name === item.Name);
         if (index === -1){
@@ -26,7 +24,7 @@ const Restaurant = () => {
             setOrder([...order]);
         }
     }
-    //deletar pedidos
+
     const deletOrder = (item) => {
         const indexItem = order.findIndex(i=> i.Name === item.Name);
         const filterDel = order.filter(i=> i.Name !== item.Name);          
@@ -39,52 +37,34 @@ const Restaurant = () => {
         }     
     }
 
-    //reduce
     const total = order.reduce((accumulator, item) => accumulator + (item.Price*item.quantity),0);
 
-    //Enviar Pedido para o firebase  
     function sendOrder() {
-        //  e.preventDefault();
-        if(order.length && table && name) {
-            // const orderClient = 
-            //     // name,
-            //     // table, 
-            //     // order,
-            //     // status:"Pendente",
-            //     // timestamp:firebase.firestore.FieldValue.serverTimestamp()
-            // 
+        
+        if(order.length && table.length && Name.length) {
             firebase.firestore().collection('orders')
-        .add({
-            name,
-            table, 
-            order,
-            status:"Pendente",
-            timestamp:firebase.firestore.FieldValue.serverTimestamp()
-        })
-        .then(()=> {
-            alert("Pedido Enviado")
-    
-            // setName([]),
-            // setTable([]),
-            // setOrder([])                
+            .add({
+                Name,
+                table, 
+                order,
+                status:"Pendente",
+                timestamp:firebase.firestore.FieldValue.serverTimestamp()
+            })
+            .then(()=> {
+                alert("Pedido Enviado")
         })
     
         setName('')
         setTable('')
         setOrder([]) 
-    } else if(!order.length){
+    } else if(order.length === 0){
             alert(" Selecione um item")
 
-        }
-        else if(!name){
+        }   else if(Name.length === 0){
             alert(" Coloque o nome do cliente")
-
-        }
-        else if(!table){
+        } else if(table.length === 0){
             alert(" Coloque o número da mesa")
-
-        }
-      
+        } 
     }   
     
     return (
@@ -92,9 +72,11 @@ const Restaurant = () => {
         <main className="container-restaurant">
             <div className="box-items">
                 <div className="bt-menutype">
-                <span className="title"><h3>Menu</h3></span>
+                <h3>Menu</h3>
+                <div className="container-restaurant ">
                     <Button Name="Café da Manhã" className="bt-menu" onClick={()=> setMenu([...coffeebreak])} />
                     <Button Name="Resto do Dia" className="bt-menu" onClick={()=> setMenu([...lunch])} />
+                    </div>
                 </div>
                 <div className = "button-Itemsmenu">
                 {menu.map(item => 
@@ -104,7 +86,6 @@ const Restaurant = () => {
                         Name={item.Name} 
                         Price={item.Price}
                         onClick ={() => addOrder(item)} 
-                        //onClick={()=> verifyOptions(Menuitems)}
                     />)
                 } 
                 </div>
@@ -113,7 +94,7 @@ const Restaurant = () => {
             <>
             <div className="box-order">
             <h3>Dados do Pedido</h3>
-            <Input placeholder="Nome do Cliente" className="input-data name-data" value={name} onChange={(e)=> setName(e.target.value)}/>
+            <Input placeholder="Nome do Cliente" className="input-data name-data" value={Name} onChange={(e)=> setName(e.target.value)}/>
             <Input placeholder="Nº da mesa" value={table} className="input-data table-data" onChange={(e)=> setTable(e.target.value)}/>
             {
             
@@ -135,4 +116,3 @@ const Restaurant = () => {
 }
 
 export default Restaurant;
-
