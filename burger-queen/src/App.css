@@ -25,18 +25,6 @@ body {
   justify-content: center;
 }
 
-/* .bt {
-  border: 1px solid rgb(12, 12, 12);
-  border-radius: 4px;
-  cursor: pointer;
-  font-family: Verdana;
-  font-weight: bold;
-  font-size: 6px;
-  padding: 6px 10px;
-  display: flex;
-  justify-content: center;
-} */
-
 .bt:active {
   position: relative;
   top: 2px;
@@ -66,7 +54,7 @@ h1 {
 	font-family:Arial;
 	font-size:15px;
 	font-weight:bold;
-	padding:13px 32px;
+	/* padding:13px 32px; */
 	text-decoration:none;
 	text-shadow:0px 1px 0px #ffffff;
   }
@@ -107,6 +95,20 @@ h1 {
   border: 1px solid #ccc;
   flex-direction: column;
 }
+.title {
+  display: flex;
+  flex-direction: column;
+  border: #528009;
+
+}
+.input-data {
+  font-size: 20px;
+}
+/* .name-data{
+  padding-bottom: 10px;
+} */
+
+
 
 .box-order {
   align-items: center;
@@ -136,6 +138,7 @@ h1 {
   background: transparent;
   border: none;
   justify-content: center;
+  
 }
 
 .bt-menutype {
@@ -143,6 +146,7 @@ h1 {
   width: 100%;
   justify-content: space-around;
   align-items: center;
+  padding-top: 5px;
 
 }
 
@@ -162,14 +166,13 @@ h1 {
   flex-direction: column;
 
 }
-/* .box-cards {
+.box-cards {
   display: flex;
   flex-wrap: wrap;
   flex-flow: row wrap;
-  /* flex-direction: row;
-  flex-flow:row ; 
+  
 }
- */
+
 
 .card-item {
   border: 1px solid #ccc;
@@ -288,6 +291,8 @@ h1 {
 .main-menu{
   display: flex;
   justify-content:center ;
+  padding:10px;
+  list-style-type: none;
 }
 
 .tabcontent {
@@ -315,7 +320,7 @@ h1 {
 #tab1 .tabcontent {
   background-color: #ddd;
   position: absolute;
-  left: 0;
+  /* left: 0; */
   top: 35px;
   height: 200px;
   /* altura total do conteúdo da aba 1 */
@@ -323,18 +328,18 @@ h1 {
 }
 
 #tab1 h3 {
-  left: 0;
-  position: absolute;
+  /* left: 0; */
+  /* position: absolute; */
   top: 0;
   z-index: 3;
-  background-color: #ddd;
+  /* background-color: #ddd; */
 }
 
 #tab1:hover h3,
 #tab1:focus h3,
 #tab1:active h3 {
   background-color: #ddd;
-  color: #565A63;
+  /* color: #565A63; */
   z-index: 4;
 }
 
@@ -346,18 +351,18 @@ h1 {
 }
 
 #tab2 .tabcontent {
-  background-color: #E6EAF3;
+  /* background-color: #E6EAF3; */
   height: 200px;
   /* altura total do conteúdo da aba 2 */
   opacity: 0;
   top: 35px;
   z-index: 1;
-  position: absolute;
+  /* position: absolute; */
 }
 
 #tab2 h3 {
-  left: 120px;
-  position: absolute;
+  /* left: 120px; */
+  /* position: absolute; */
   top: 0;
 }
 
@@ -365,7 +370,7 @@ h1 {
 #tab2:focus h3,
 #tab2:active h3 {
   background-color: #E6EAF3;
-  color: #565A63;
+  /* color: #565A63; */
   z-index: 4;
 }
 

@@ -92,6 +92,7 @@ const Restaurant = () => {
         <main className="container-restaurant">
             <div className="box-items">
                 <div className="bt-menutype">
+                <span className="title"><h3>Menu</h3></span>
                     <Button Name="Café da Manhã" className="bt-menu" onClick={()=> setMenu([...coffeebreak])} />
                     <Button Name="Resto do Dia" className="bt-menu" onClick={()=> setMenu([...lunch])} />
                 </div>
@@ -112,8 +113,8 @@ const Restaurant = () => {
             <>
             <div className="box-order">
             <h3>Dados do Pedido</h3>
-            <Input placeholder="Nome do Cliente e nº da mesa" value={name} onChange={(e)=> setName(e.target.value)}/>
-            <Input placeholder="Nº da mesa" value={table} onChange={(e)=> setTable(e.target.value)}/>
+            <Input placeholder="Nome do Cliente" className="input-data name-data" value={name} onChange={(e)=> setName(e.target.value)}/>
+            <Input placeholder="Nº da mesa" value={table} className="input-data table-data" onChange={(e)=> setTable(e.target.value)}/>
             {
             
                 order.map(item => 
@@ -124,7 +125,7 @@ const Restaurant = () => {
                         
                     </>)
             } 
-            <h3>Total:R$ {total},00</h3>
+            <h3>Total: R$ {total},00</h3>
             <Button Name ="Enviar" className="bt-enviar" onClick ={sendOrder} />
             
             </div></>

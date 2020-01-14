@@ -71,7 +71,7 @@ function Order() {
                       //  {item.status === "Pendente" ? 
                   <div className="card-item">
                     <div className="divisor">
-                      <p><b>{item.name} {item.table}</b></p> 
+                      <p><b>{item.name} Mesa:{item.table}</b></p> 
                     </div>               
                   {item.order.map(elem =>                            
                       <>
