@@ -1,13 +1,19 @@
 body {
   margin:0;
-  background: #D3D3D3;
+  background: #2B1607;
   display: block;
   height: 100%; 
+  padding-top: 50px;
+  padding-left: 100px;
 
 }
 #root {
   display: block;
-  height: 100%; 
+  border-radius: 20px;
+  border: solid black;
+  height: 80%;
+  width: 90%;
+  background-color:#FDFD96;
 }
 
 .logo {
@@ -79,7 +85,8 @@ h1 {
   display: flex;
   border: 1px solid #ccc;
   flex-direction: column;
-  background: #DCDCDC;
+  background:#c23b22;
+  border-radius: 10px;
 }
 .title {
   display: flex;
@@ -98,7 +105,8 @@ h1 {
   margin: 0 auto;
   display: flex;
   border: 1px solid #ccc;
-  background:#DCDCDC
+  border-radius: 10px;
+  background:#c23b22;
 
 }
 
@@ -117,6 +125,7 @@ h1 {
   width: 100%;
   flex-wrap: wrap;
   justify-content: center;
+  overflow:scroll;
 }
 
 .bt-menu {
@@ -366,3 +375,22 @@ h1 {
 #tab2{
   text-decoration: none;
 }
+
+
+.drink{
+  border: solid pink;
+  
+}
+.sandwich{
+  border: solid blueviolet;
+}
+.extra{
+  border:solid orange;
+}
+.additional{
+  border:solid yellowgreen;
+}
+.flex{
+  display: flex;
+}
+

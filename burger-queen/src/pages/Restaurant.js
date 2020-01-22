@@ -8,8 +8,8 @@ import Swal from 'sweetalert2';
 
 const Restaurant = () => {
     const Menuitems = Menu();
-    const coffeebreak = Menuitems.filter(item=>item.breakfast === true);
-    const lunch = Menuitems.filter(item=>item.breakfast !== true);
+    const coffeebreak = Menuitems.filter(item=>item.breakfast);
+    const lunch = Menuitems.filter(item=>!item.breakfast);
     const [order, setOrder] = useState([]);
     const [menu, setMenu] = useState([]);
     const [Name, setName] = useState([]);
@@ -94,9 +94,20 @@ const Restaurant = () => {
                         </div>
                     </div>
                     <div className = 'button-Itemsmenu'>
-                    {menu.map(item => 
-                        <Button className='bt bt-Itemsmenu' Name={item.Name} Price={item.Price} onClick ={() => addOrder(item)} />
-                    )} 
+                        
+                    <div class="drink flex">{menu.map(item => item.type === "drink"? 
+                        <Button className='bt bt-Itemsmenu' Name={item.Name} Price={item.Price} onClick ={() => addOrder(item)} />:false 
+                    )}</div>
+                    <div class="extra flex">{menu.map(item => item.type === "extra"?
+                        <Button className='bt bt-Itemsmenu' Name={item.Name} Price={item.Price} onClick ={() => addOrder(item)} />:false 
+                    )}</div> 
+                    <div class="additional flex">{menu.map(item => item.type === "additional"?
+                        <Button className='bt bt-Itemsmenu' Name={item.Name} Price={item.Price} onClick ={() => addOrder(item)} />:false 
+                    )}</div> 
+                    <div class="sandwich flex">{menu.map(item => item.type === "sandwich"?
+                        <Button className='bt bt-Itemsmenu' Name={item.Name} Price={item.Price} onClick ={() => addOrder(item)} />:false 
+                    )}</div> 
+
                 </div>
                 </div>
         

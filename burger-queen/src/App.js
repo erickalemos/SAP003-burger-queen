@@ -15,7 +15,7 @@ function App() {
       <header>
         <Nav />             
               </header>
-              <div>
+              
           <Switch>
             <Route path="/Kitchen">
               
@@ -28,7 +28,7 @@ function App() {
             
             </Route>
           </Switch>
-      </div>
+      
       
     </Router>
   );
