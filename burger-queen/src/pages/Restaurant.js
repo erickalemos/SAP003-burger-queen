@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Menu from '../components/menu';
+import Menu from '../menu';
 import Button from '../components/button';
 import Input from '../components/input';
 import '../App.css';

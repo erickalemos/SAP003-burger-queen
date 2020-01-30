@@ -9,14 +9,14 @@ function Nav(){
         <div className='box-logo'>
           <Logo className='logo'/>
         </div>
-        <div id='csstabs' className='csstabs' >
+        <div className='csstabs' >
         <nav className= 'main-nav'>
           <ul className= 'main-menu'>
-            <li id='tab1'>
-              <Link to='/Restaurant' id='tab1'><h3>Restaurante</h3></Link>
+            <li className='nav-restaurant'>
+              <Link to='/Restaurant' className='nav-restaurant'><h3>Restaurante</h3></Link>
             </li>
-            <li id='tab2'>
-              <Link to='/Kitchen' id='tab2'><h3>Cozinha</h3></Link>
+            <li className='nav-kitchen'>
+              <Link to='/Kitchen' className='nav-kitchen'><h3>Cozinha</h3></Link>
             </li>
           </ul>
         </nav>

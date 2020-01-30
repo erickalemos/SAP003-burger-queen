@@ -14,22 +14,15 @@ function App() {
     <Router>
       <header>
         <Nav />             
-              </header>
-              
-          <Switch>
-            <Route path="/Kitchen">
-              
-            
-              <Order />
-            </Route>
-            <Route path="/">
-            
-            <Restaurant />
-            
-            </Route>
-          </Switch>
-      
-      
+      </header>
+      <Switch>
+        <Route path="/Kitchen">
+          <Order />
+        </Route>
+        <Route path="/">
+          <Restaurant />
+        </Route>
+      </Switch>
     </Router>
   );
 }
