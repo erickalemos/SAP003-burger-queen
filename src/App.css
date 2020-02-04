@@ -28,33 +28,10 @@ body {
   justify-content: center;
 }
 
-.bt:active {
-  position: relative;
-  top: 2px;
-}
-
 h1 {
   display: flex;
   align-items: center;
 }
-
-.bt-Itemsmenu, .bt-enviar {
-	cursor:pointer;
-	font-family:Arial;
-	font-size:15px;
-  font-weight:bold;
-  border-radius: 10px;
-  
-
-  }
-
-  .bt-Itemsmenu, .bt-enviar {
-    background-color: khaki;
-  }
-  .bt-Itemsmenu, .bt-enviar {
-    position:relative;
-    top:1px;
-  }
 
 .button-Itemsmenu {
   display: flex;
@@ -126,20 +103,6 @@ h1 {
   justify-content: space-around;
   padding-top: 10px;
   padding-bottom: 10px;
-}
-
-.bt-menu {
-	box-shadow:inset 0px 1px 0px 0px #ffffff;
-	background-color:black;
-	border-radius:6px;
-	display:inline-block;
-	cursor:pointer;
-	font-size:17px;
-	font-weight:bold;
-  text-decoration:none;
-  color: darkorange;
-	
-    
 }
 
 .bt-menutype {
@@ -239,31 +202,40 @@ h1 {
 	top:1px;
 }
 
-.bt-kitchen {
-	box-shadow:inset 0px 1px 0px 0px #ffffff;
 
-  background-color: black;
+.bt, .bt-kitchen, .bt-menu, .bt-enviar, .restaurant, .kitchen {
+	box-shadow:inset 0px 1px 0px 0px #fce2c1;
+	background:linear-gradient(to bottom, #ffc477 5%, #fb9e25 100%);
+	background-color:#ffc477;
 	border-radius:6px;
-	border:1px solid #dcdcdc;
+	border:1px solid #eeb44f;
 	display:inline-block;
 	cursor:pointer;
-	color:#777777;
+	color:#ffffff;
 	font-family:Arial;
 	font-size:15px;
 	font-weight:bold;
 	padding:6px 24px;
 	text-decoration:none;
-  text-shadow:0px 1px 0px #ffffff;
-  font-size: 18px;
+	text-shadow:0px 1px 0px #cc9f52;
 }
-.bt-kitchen:hover {
-	background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
-	background-color:#dfdfdf;
+.bt, .bt-kitchen, .bt-color, .restaurant, .kitchen {
+	background:linear-gradient(to bottom, #fb9e25 5%, #ffc477 100%);
+	background-color:#fb9e25;
 }
-.bt-kitchen:active {
+.bt, .bt-kitchen, .bt-color, .restaurant, .kitchen{
 	position:relative;
 	top:1px;
 }
+
+.bt-color {
+  border: solid black;
+  color: #000;
+  font-weight: bold;
+}
+
+
+
 
 .csstabs {
   height: 80%;
@@ -282,7 +254,7 @@ h1 {
   margin: 0;
   padding: 5px 5px 5px 5px;
   text-align: left;
- 
+
 }
 .main-menu{
   display: flex;
@@ -378,4 +350,3 @@ h1 {
 .flex{
   display: flex;
 }
-

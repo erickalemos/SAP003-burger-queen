@@ -89,8 +89,8 @@ const Restaurant = () => {
                     <div className='bt-menutype'>
                         <h3>Menu</h3>
                         <div className='container-restaurant '>
-                            <Button Name='Café da Manhã' className='bt-menu' onClick={()=> setMenu([...coffeebreak])} />
-                            <Button Name='Resto do Dia' className='bt-menu' onClick={()=> setMenu([...lunch])} />
+                            <Button Name='Café da Manhã' className='bt-color' onClick={()=> setMenu([...coffeebreak])} />
+                            <Button Name='Resto do Dia' className='bt-color' onClick={()=> setMenu([...lunch])} />
                         </div>
                     </div>
                     <div className = 'button-Itemsmenu'>
@@ -124,7 +124,7 @@ const Restaurant = () => {
                             </>
                         )} 
                         <h3>Total: R$ {total},00</h3>
-                        <Button Name ='Enviar' className='bt-enviar' onClick ={sendOrder} />
+                        <Button Name ='Enviar' className='bt-color' onClick ={sendOrder} />
                     </div>
                 </>
             </main>

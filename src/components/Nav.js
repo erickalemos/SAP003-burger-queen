@@ -13,10 +13,10 @@ function Nav(){
         <nav className= 'main-nav'>
           <ul className= 'main-menu'>
             <li className='nav-restaurant'>
-              <Link to='/Restaurant' className='nav-restaurant'><h3>Restaurante</h3></Link>
+              <Link to='/Restaurant' className='nav-restaurant'><h3 className ='restaurant'>Restaurante</h3></Link>
             </li>
             <li className='nav-kitchen'>
-              <Link to='/Kitchen' className='nav-kitchen'><h3>Cozinha</h3></Link>
+              <Link to='/Kitchen' className='nav-kitchen'><h3 className ='kitchen'>Cozinha</h3></Link>
             </li>
           </ul>
         </nav>
