@@ -61,6 +61,7 @@ h1 {
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
+  height: 289px;
 }
 
 .bt-kitchen {
@@ -74,7 +75,7 @@ h1 {
 }
 
 .box-items {
-  width: 60%;
+  width:597px;
   margin: 0 auto;
   display: flex;
   border: 1px solid #ccc;
@@ -92,6 +93,7 @@ h1 {
 
 .input-data {
   font-size: 20px;
+  border-radius: 10px;
 }
 
 .box-order {
@@ -160,7 +162,7 @@ h1 {
 
 }
 .order{
-  font-size: 25px;
+  font-size: 18px;
   display: flex;
 }
 

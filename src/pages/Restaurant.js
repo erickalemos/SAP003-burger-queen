@@ -99,7 +99,7 @@ const Restaurant = () => {
                         <Button className='bt bt-Itemsmenu' Name={item.Name} Price={item.Price} onClick ={() => addOrder(item)} />:false 
                     )}</div>
                     <div class="extra flex">{menu.map(item => item.type === "extra"?
-                        <Button className='bt bt-Itemsmenu' Name={item.Name} Price={item.Price} onClick ={() => addOrder(item)} />:false 
+                        <Button className='bt bt-Itemsmenu' Name={item.Name}  Price= {item.Price} onClick ={() => addOrder(item)} />:false 
                     )}</div> 
                     <div class="additional flex">{menu.map(item => item.type === "additional"?
                         <Button className='bt bt-Itemsmenu' Name={item.Name} Price={item.Price} onClick ={() => addOrder(item)} />:false 
@@ -114,7 +114,7 @@ const Restaurant = () => {
                 <>
                     <div className='box-order'>
                         <h3>Dados do Pedido</h3>
-                        <Input placeholder='Nome do Cliente' className='input-data name-data' value={Name} onChange={(e)=> setName(e.target.value)}/>
+                        <Input placeholder='Nome do Cliente' className='input-data name-data' value={Name} onChange={(e)=> setName(e.target.value)}/><br></br>
                         <Input placeholder='Nº da mesa' value={table} className='input-data table-data' onChange={(e)=> setTable(e.target.value)}/>
                         {order.map(item => 
                             <>
