@@ -34,4 +34,5 @@ Na interface da cozinha é preciso selecionar o status dos pedidos para visualiz
 ## 4. Considerações gerais
 
 •Interface pensada específicamente para rodar em tablets.
+
 •O aplicativo é um Single Page App.
