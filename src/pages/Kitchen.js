@@ -54,7 +54,7 @@ function Order() {
           {processing.map(item =>     
             <div className='card-item'>
               <div className='divisor'>
-                <p><b>{item.Name}<hr/> Mesa: {item.table}</b></p> 
+                <p><b>{item.Name} - Mesa: {item.table}</b></p> 
               </div>               
               {item.order.map(elem =>                            
                 <>

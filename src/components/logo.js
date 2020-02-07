@@ -2,7 +2,7 @@ import React from'react';
 
 const Logo = (props) => {
     return (
-        <img src = 'logo.png' className={props.className}/>
+        <img src = '/img/logo.png' className={props.className}/>
     )
 }
 
