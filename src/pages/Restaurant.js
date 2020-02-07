@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import Menu from '../menu';
 import Button from '../components/button';
+import ButtonItem from '../components/buttonitem';
+import Buttondel from '../components/buttondel';
 import Input from '../components/input';
 import '../App.css';
 import firebase from '../firebase';
@@ -58,7 +60,7 @@ const Restaurant = () => {
         setName(''),
         setTable(''),
         setOrder([]) 
-         )} else if(order.length === 0){
+        )} else if(order.length === 0){
         Swal.fire({
             icon: 'error',
             title: 'Selecione ao menos um item!',
@@ -88,25 +90,26 @@ const Restaurant = () => {
                 <div className='box-items'>
                     <div className='bt-menutype'>
                         <h3>Menu</h3>
-                        <div className='container-restaurant '>
-                            <Button Name='Café da Manhã' className='bt-color' onClick={()=> setMenu([...coffeebreak])} />
-                            <Button Name='Resto do Dia' className='bt-color' onClick={()=> setMenu([...lunch])} />
+                        <div className='menutype'> 
+                            <Button Name='Café da Manhã' className='bt-color bt-menu' onClick={()=> setMenu([...coffeebreak])} />
+                            <Button Name='Resto do Dia' className='bt-color  bt-menu' onClick={()=> setMenu([...lunch])} />
                         </div>
                     </div>
                     <div className = 'button-Itemsmenu'>
                         
                     <div class="drink flex">{menu.map(item => item.type === "drink"? 
-                        <Button className='bt bt-Itemsmenu' Name={item.Name} Price={item.Price} onClick ={() => addOrder(item)} />:false 
+                        <ButtonItem className='bt bt-Itemsmenu' Name={item.Name} Price={item.Price} onClick ={() => addOrder(item)} />:false 
                     )}</div>
+                    <div class="sandwich flex">{menu.map(item => item.type === "sandwich"?
+                        <ButtonItem className='bt bt-Itemsmenu' Name={item.Name} Price={item.Price} onClick ={() => addOrder(item)} />:false 
+                    )}</div> 
                     <div class="extra flex">{menu.map(item => item.type === "extra"?
-                        <Button className='bt bt-Itemsmenu' Name={item.Name}  Price= {item.Price} onClick ={() => addOrder(item)} />:false 
+                        <ButtonItem className='bt bt-Itemsmenu' Name={item.Name}  Price= {item.Price} onClick ={() => addOrder(item)} />:false 
                     )}</div> 
                     <div class="additional flex">{menu.map(item => item.type === "additional"?
-                        <Button className='bt bt-Itemsmenu' Name={item.Name} Price={item.Price} onClick ={() => addOrder(item)} />:false 
+                        <ButtonItem className='bt bt-Itemsmenu' Name={item.Name} Price={item.Price} onClick ={() => addOrder(item)} />:false 
                     )}</div> 
-                    <div class="sandwich flex">{menu.map(item => item.type === "sandwich"?
-                        <Button className='bt bt-Itemsmenu' Name={item.Name} Price={item.Price} onClick ={() => addOrder(item)} />:false 
-                    )}</div> 
+
 
                 </div>
                 </div>
@@ -118,8 +121,8 @@ const Restaurant = () => {
                         <Input placeholder='Nº da mesa' value={table} className='input-data table-data' onChange={(e)=> setTable(e.target.value)}/>
                         {order.map(item => 
                             <>
-                                <div className='order'>{item.Name} - qtde: {item.quantity}
-                                    <Button className = 'btn-del'title = '🗑' onClick = {() => deletOrder(item)} /> 
+                                <div className='order'>{item.Name} - Qtde: {item.quantity}
+                                    <Buttondel className = 'btn-del'title = '🗑' onClick = {() => deletOrder(item)} /> 
                                 </div>    
                             </>
                         )} 
