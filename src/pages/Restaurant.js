@@ -95,25 +95,22 @@ const Restaurant = () => {
                             <Button Name='Resto do Dia' className='bt-color  bt-menu' onClick={()=> setMenu([...lunch])} />
                         </div>
                     </div>
-                    <div className = 'button-Itemsmenu'>
-                        
-                    <div class="drink flex">{menu.map(item => item.type === "drink"? 
-                        <ButtonItem className='bt bt-Itemsmenu' Name={item.Name} Price={item.Price} onClick ={() => addOrder(item)} />:false 
-                    )}</div>
-                    <div class="sandwich flex">{menu.map(item => item.type === "sandwich"?
-                        <ButtonItem className='bt bt-Itemsmenu' Name={item.Name} Price={item.Price} onClick ={() => addOrder(item)} />:false 
-                    )}</div> 
-                    <div class="extra flex">{menu.map(item => item.type === "extra"?
-                        <ButtonItem className='bt bt-Itemsmenu' Name={item.Name}  Price= {item.Price} onClick ={() => addOrder(item)} />:false 
-                    )}</div> 
-                    <div class="additional flex">{menu.map(item => item.type === "additional"?
-                        <ButtonItem className='bt bt-Itemsmenu' Name={item.Name} Price={item.Price} onClick ={() => addOrder(item)} />:false 
-                    )}</div> 
-
-
+                        <div className = 'button-Itemsmenu'>
+                            
+                        <div class="drink flex">{menu.map(item => item.type === "drink"? 
+                            <ButtonItem className='bt bt-Itemsmenu' Name={item.Name} Price={item.Price} onClick ={() => addOrder(item)} />:false 
+                        )}</div>
+                        <div class="sandwich flex">{menu.map(item => item.type === "sandwich"?
+                            <ButtonItem className='bt bt-Itemsmenu' Name={item.Name} Price={item.Price} onClick ={() => addOrder(item)} />:false 
+                        )}</div> 
+                        <div class="extra flex">{menu.map(item => item.type === "extra"?
+                            <ButtonItem className='bt bt-Itemsmenu' Name={item.Name}  Price= {item.Price} onClick ={() => addOrder(item)} />:false 
+                        )}</div> 
+                        <div class="additional flex">{menu.map(item => item.type === "additional"?
+                            <ButtonItem className='bt bt-Itemsmenu' Name={item.Name} Price={item.Price} onClick ={() => addOrder(item)} />:false 
+                        )}</div> 
+                    </div>
                 </div>
-                </div>
-        
                 <>
                     <div className='box-order'>
                         <h3>Dados do Pedido</h3>

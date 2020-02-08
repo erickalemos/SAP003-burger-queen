@@ -256,10 +256,24 @@
     color: #2B1607;
   }
 
-  .bt-kitchen:active {
-    background-color: red;
+  .bt-kitchen:hover {
+    background: #2B1607;
+    color: #ffffff;
   }
 
+  .bt-menu:hover {
+    background: #2B1607;
+    color: #ffffff;
+  }
+
+  .restaurant:hover {
+    background: #2B1607;
+    color: #ffffff;
+  }
+  .kitchen:hover {
+    background: #2B1607;
+    color: #ffffff;
+  }
 
   .bt-Itemsmenu {
     margin-right: 5px;
